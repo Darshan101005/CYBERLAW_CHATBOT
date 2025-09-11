@@ -1,0 +1,542 @@
+[
+    {
+        "s_no": "1",
+        "state_ut": "ANDAMAN & NICOBAR",
+        "nodal_officer": {
+            "name": "Sh. Jitendra Kumar Meena, IPS",
+            "rank": "SSP (CID)",
+            "email": "spcid.and@nic.in"
+        },
+        "grievance_officer": {
+            "name": "Smt. Sindhu Pillai A, IPS",
+            "rank": "DIGP(Intl.)",
+            "contact": "03192-232334",
+            "email": "igp.and@nic.in"
+        }
+    },
+    {
+        "s_no": "2",
+        "state_ut": "ANDHRA PRADESH",
+        "nodal_officer": {
+            "name": "Mrs Krishna Prasanna Kumari",
+            "rank": "Superintendent of Police",
+            "email": "cybercrimes1930@cid.appolice.gov.in"
+        },
+        "grievance_officer": {
+            "name": "SP Cyber Crimes, CID",
+            "rank": "Superintendent of Police",
+            "contact": "8331043255",
+            "email": "cybercrimes-cid@ap.gov.in"
+        }
+    },
+    {
+        "s_no": "3",
+        "state_ut": "ARUNACHAL PRADESH",
+        "nodal_officer": {
+            "name": "Sh. Rohit Rajbir Singh, IPS",
+            "rank": "S.P (Crime & SIT)",
+            "email": "spsit@arupol.nic.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Take Ringu, IPS",
+            "rank": "IGP (Crime)",
+            "contact": "9436040703",
+            "email": "takeringu@ips.gov.in"
+        }
+    },
+    {
+        "s_no": "4",
+        "state_ut": "ASSAM",
+        "nodal_officer": {
+            "name": "Mrs. Indrani Baruah, IPS",
+            "rank": "DIGP",
+            "email": "digp-cid@assampolice.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Debaraj Upadhaya, IPS",
+            "rank": "IGP,CID",
+            "contact": "0361-2521618",
+            "email": "igp-cid@assampolice.gov.in"
+        }
+    },
+    {
+        "s_no": "5",
+        "state_ut": "BIHAR",
+        "nodal_officer": {
+            "name": "Shri. Sushil Kumar IPS",
+            "rank": "SP",
+            "email": "cybercell-bih@nic.in"
+        },
+        "grievance_officer": {
+            "name": "Shri. Rajesh Tripathi",
+            "rank": "SSP",
+            "contact": "0612-2238098",
+            "email": "cybercell-bih@nic.in"
+        }
+    },
+    {
+        "s_no": "6",
+        "state_ut": "CHANDIGARH",
+        "nodal_officer": {
+            "name": "Ms. Geetanjali Khandelwal, IPS",
+            "rank": "SP/Cyber Crime(Nodal Officer)",
+            "email": "dspccic.chd@nic.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Raj Kumar Singh, IPS",
+            "rank": "IGP-UT",
+            "contact": "0172-2700056",
+            "email": "dig-chd@nic.in"
+        }
+    },
+    {
+        "s_no": "7",
+        "state_ut": "CHHATTISGARH",
+        "nodal_officer": {
+            "name": "Sh. Kavi Gupta",
+            "rank": "AIG",
+            "email": "aigtech-phq.cg@gov.in"
+        },
+        "grievance_officer": {
+            "name": "Shri Girija Shankar Jaiswal",
+            "rank": "DIG(Technical Services)",
+            "contact": "0771-2511989",
+            "email": "girijashankar.ips.@gov.in"
+        }
+    },
+    {
+        "s_no": "8",
+        "state_ut": "DADRA & NAGAR HAVELI AND DAMAN & DIU",
+        "nodal_officer": {
+            "name": "Shri Amit Sharma, IPS",
+            "rank": "SP",
+            "email": "phq-dd@nic.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Vikramjit Singh, IPS",
+            "rank": "DIGP",
+            "contact": "0260-2220140",
+            "email": "digp-daman-dd@nic.in"
+        }
+    },
+    {
+        "s_no": "9",
+        "state_ut": "DELHI",
+        "nodal_officer": {
+            "name": "Sh. Hemant Tiwari, IPS",
+            "rank": "DCP/IFSO",
+            "email": "ncrp.delhi@delhipolice.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Rajneesh Gupta IPS",
+            "rank": "JT.CP, IFSO Special Cell",
+            "contact": "011-20892633",
+            "email": "jointcp.ifsosplcell@delhipolice.gov.in"
+        }
+    },
+    {
+        "s_no": "10",
+        "state_ut": "GOA",
+        "nodal_officer": {
+            "name": "Sh.Nidhin Valsan, IPS",
+            "rank": "SP, Cyber Crime,",
+            "email": "spcyber@goapolice.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Paramaditya",
+            "rank": "DIGP",
+            "contact": "0832-2420883",
+            "email": "digpgoa@goapolice.gov.in"
+        }
+    },
+    {
+        "s_no": "11",
+        "state_ut": "GUJARAT",
+        "nodal_officer": {
+            "name": "Sh. Dharmendra Sharma",
+            "rank": "SP",
+            "email": "cc-cid@gujarat.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. S.G. Trivedi",
+            "rank": "IGP",
+            "contact": "079-23250798",
+            "email": "cc-cid@gujarat.gov.in"
+        }
+    },
+    {
+        "s_no": "12",
+        "state_ut": "HARYANA",
+        "nodal_officer": {
+            "name": "Amit Dahiya, HPS",
+            "rank": "SP, Cyber",
+            "email": "dspscbggn@gmail.com"
+        },
+        "grievance_officer": {
+            "name": "Sh. Hamid Akhtar, IPS",
+            "rank": "DIG SCB-I",
+            "contact": "0172-2524058",
+            "email": "sp-cybercrimephq.pol@hry.gov.in"
+        }
+    },
+    {
+        "s_no": "13",
+        "state_ut": "HIMACHAL PRADESH",
+        "nodal_officer": {
+            "name": "IPS Mohit Chawla",
+            "rank": "DIG",
+            "email": "dig-cybercr-hp@nic.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. D. K. Chaudhary",
+            "rank": "DIGP/Crime",
+            "contact": "0177-2620331",
+            "email": "adgp-cid-hp@nic.in"
+        }
+    },
+    {
+        "s_no": "14",
+        "state_ut": "JAMMU & KASHMIR",
+        "nodal_officer": {
+            "name": "Sh Arun Kumar Choudhary",
+            "rank": "Spl. DGP",
+            "email": "igcrime-jk@nic.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. RR Swan",
+            "rank": "DGP",
+            "contact": "0191-25822926",
+            "email": "adgpcidjk@jkpolice.gov.in"
+        }
+    },
+    {
+        "s_no": "15",
+        "state_ut": "JHARKHAND",
+        "nodal_officer": {
+            "name": "Anuranjan Kisphotta",
+            "rank": "S.P. Cyber Crime, CID",
+            "email": "cyberps@jhpolice.gov.in"
+        },
+        "grievance_officer": {
+            "name": "-",
+            "rank": "S.P. Cyber Crime, CID",
+            "contact": "0651-2220060",
+            "email": "cyberps@jhpolice.gov.in"
+        }
+    },
+    {
+        "s_no": "16",
+        "state_ut": "KARNATAKA",
+        "nodal_officer": {
+            "name": "Sri Ravishankar K",
+            "rank": "S.P, CT&R, CID",
+            "email": "cybercrimenodal@ksp.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sri Shantanu Sinha, IPS",
+            "rank": "DIG, Cyber Crimes,Narcotic,CID",
+            "contact": "080-22942475",
+            "email": "spctrcid@ksp.gov.in"
+        }
+    },
+    {
+        "s_no": "17",
+        "state_ut": "KERALA",
+        "nodal_officer": {
+            "name": "HARI SANKAR IPS",
+            "rank": "Superintendent of Police",
+            "email": "spcyberops.pol@kerala.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh H Venkatesh, IPS",
+            "rank": "ADGP",
+            "contact": "0471-2300042",
+            "email": "adgpcyberops.pol@kerala.gov.in"
+        }
+    },
+    {
+        "s_no": "18",
+        "state_ut": "LADAKH",
+        "nodal_officer": {
+            "name": "Farhan Jehanzeb Naqash",
+            "rank": "SP IT PHQ Ladakh",
+            "email": "itsec-phq@police.ladakh.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Deepak Digra- JKPS",
+            "rank": "SP (AIG CIV PHQ UT Ladakh)",
+            "contact": "9541902324",
+            "email": "aig-civl@police.ladakh.gov.in"
+        }
+    },
+    {
+        "s_no": "19",
+        "state_ut": "LAKSHADWEEP",
+        "nodal_officer": {
+            "name": "Sh. Prakshay Kumar Singh DANIPS",
+            "rank": "DSP  (HQ)",
+            "email": "cctns-lk@nic.in"
+        },
+        "grievance_officer": {
+            "name": "Sh.Hareshwar V Swami, IPS",
+            "rank": "SP (L&O)",
+            "contact": "04896262258",
+            "email": "lak-sop@nic.in"
+        }
+    },
+    {
+        "s_no": "20",
+        "state_ut": "MADHYA PRADESH",
+        "nodal_officer": {
+            "name": "Shri Mohammed  Yusuf Qureshi, IPS",
+            "rank": "DIG Cyber",
+            "email": "mpcyberpolice@mppolice.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Shri Yogesh Deshmukh",
+            "rank": "ADG, State Cyber Police",
+            "contact": "0755-2770248",
+            "email": "adg-cybercell@mppolice.gov.in"
+        }
+    },
+    {
+        "s_no": "21",
+        "state_ut": "MAHARASHTRA",
+        "nodal_officer": {
+            "name": "Sh. Yashasvi Yadav",
+            "rank": "Special IGP",
+            "email": "ig.cbr-mah@gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Sanjay  Vilas  Shintre",
+            "rank": "SP",
+            "contact": "022-22160080",
+            "email": "sp.cbr-mah@gov.in"
+        }
+    },
+    {
+        "s_no": "22",
+        "state_ut": "MANIPUR",
+        "nodal_officer": {
+            "name": "Shri N. John",
+            "rank": "Superintendent of Police",
+            "email": "sp-cybercrime.mn@manipur.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Ningshem Worngam",
+            "rank": "DIGP (Int)",
+            "contact": "0385-2444888",
+            "email": "grievance.ncrp@gmail.com"
+        }
+    },
+    {
+        "s_no": "23",
+        "state_ut": "MEGHALAYA",
+        "nodal_officer": {
+            "name": "Miss. Neena Rabha, MPS",
+            "rank": "DSP, ACB/CCW",
+            "email": "ccw-meg@gov.in"
+        },
+        "grievance_officer": {
+            "name": "Pankaj Kumar Rasgania, IPS",
+            "rank": "SP( Cyber), PHQ",
+            "contact": "9402519391",
+            "email": "ccw-meg@gov.in"
+        }
+    },
+    {
+        "s_no": "24",
+        "state_ut": "MIZORAM",
+        "nodal_officer": {
+            "name": "LALHULIANA FANAI",
+            "rank": "DIG (CID)",
+            "email": "cidcrime-mz@nic.in"
+        },
+        "grievance_officer": {
+            "name": "Sh Devesh Chandra Srivastava, IPS",
+            "rank": "DGP",
+            "contact": "0389-2334682",
+            "email": "polmizo@rediffmail.com"
+        }
+    },
+    {
+        "s_no": "25",
+        "state_ut": "NAGALAND",
+        "nodal_officer": {
+            "name": "Vikram M Khalate, IPS",
+            "rank": "IGP(CID)",
+            "email": "igpcrime-ngl@nic.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Sandeep M. Tamgadge, IPS",
+            "rank": "ADGP (L&O)",
+            "contact": "6009308003",
+            "email": "adgplo.ngl@gov.in"
+        }
+    },
+    {
+        "s_no": "26",
+        "state_ut": "ODISHA",
+        "nodal_officer": {
+            "name": "Shri. Shefeen Ahamed K, lPS",
+            "rank": "lGP, CID CB",
+            "email": "igp2-cidcb@odishapolice.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Arun Bothra, lPS",
+            "rank": "ADGP",
+            "contact": "0674-2913100",
+            "email": "adgcidcb.orpol@nic.in"
+        }
+    },
+    {
+        "s_no": "27",
+        "state_ut": "PUDUCHERRY",
+        "nodal_officer": {
+            "name": "Sh. Narra Chaitanya, IPS",
+            "rank": "SSP(Traffic)",
+            "email": "ssptraffic@py.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Dr. VJ Chandran",
+            "rank": "IGP",
+            "contact": "0413-2231313",
+            "email": "igp@py.gov.in"
+        }
+    },
+    {
+        "s_no": "28",
+        "state_ut": "PUNJAB",
+        "nodal_officer": {
+            "name": "Jashandeep Singh Gill",
+            "rank": "Superintendent of Police",
+            "email": "aigcc@punjabpolice.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. P. K. Sinha, IPS",
+            "rank": "ADGP, Cyber Crime",
+            "contact": "0172-2226258",
+            "email": "igp.cyber.c.police@punjabpolice.gov.in"
+        }
+    },
+    {
+        "s_no": "29",
+        "state_ut": "RAJASTHAN",
+        "nodal_officer": {
+            "name": "Shri Shantanu Kumar Singh",
+            "rank": "Superintendent of Police",
+            "email": "sp.cybercrime@rajpolice.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Shri Sharat Kaviraj",
+            "rank": "Inspector General of Police",
+            "contact": "01412821741",
+            "email": "sp.cybercrime@rajpolice.gov.in"
+        }
+    },
+    {
+        "s_no": "30",
+        "state_ut": "SIKKIM",
+        "nodal_officer": {
+            "name": "Sh. Kunzang Dorjee Shangdarpa",
+            "rank": "DIGP",
+            "email": "spcid@sikkimpolice.nic.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Abhishek Dahal",
+            "rank": "Police Inspector/CID",
+            "contact": "8695622134",
+            "email": "cybercrime666sk@gmail.com"
+        }
+    },
+    {
+        "s_no": "31",
+        "state_ut": "TAMIL NADU",
+        "nodal_officer": {
+            "name": "Tmt.M.Kingshlin",
+            "rank": "Superintendent of Police",
+            "email": "sp2cwc@gmail.com"
+        },
+        "grievance_officer": {
+            "name": "Sh. D. Ashok Kumar",
+            "rank": "SP(for OTHER CYBER CRIMES)",
+            "contact": "044-29580300",
+            "email": "sp1-ccdtnpolice@gov.in"
+        }
+    },
+    {
+        "s_no": "32",
+        "state_ut": "TELANGANA",
+        "nodal_officer": {
+            "name": "Shri Devender Singh",
+            "rank": "SP, Cyber Crimes, TSCSB",
+            "email": "spoperations-csb-ts@tspolice.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Smt. Shikha Goel, IPS",
+            "rank": "Director, TSCSB",
+            "contact": "040-29320049",
+            "email": "director-tscsb@tspolice.gov.in"
+        }
+    },
+    {
+        "s_no": "33",
+        "state_ut": "TRIPURA",
+        "nodal_officer": {
+            "name": "MIHIR LAL DAS, TPS",
+            "rank": "Superintendent of Police",
+            "email": "spcybercrime@tripurapolice.nic.in"
+        },
+        "grievance_officer": {
+            "name": "Smt. Sudeshna Bhattacharyya, TPS",
+            "rank": "SP (SCRB)",
+            "contact": "0381-2376979",
+            "email": "spscrb@tripurapolice.nic.in"
+        }
+    },
+    {
+        "s_no": "34",
+        "state_ut": "UTTARAKHAND",
+        "nodal_officer": {
+            "name": "P RENUKA DEVI IPS",
+            "rank": "DIG",
+            "email": "spstf-uk@nic.in"
+        },
+        "grievance_officer": {
+            "name": "Sh. Ayush Agarwal",
+            "rank": "SSP/STF",
+            "contact": "0135-2655900",
+            "email": "spstf-uk@nic.in"
+        }
+    },
+    {
+        "s_no": "35",
+        "state_ut": "UTTAR PRADESH",
+        "nodal_officer": {
+            "name": "Rajesh Kumar Yadav",
+            "rank": "SP",
+            "email": "sp-cyber.lu@up.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Binod Kumar Singh",
+            "rank": "ADG",
+            "contact": "0522-2390538",
+            "email": "adg-cybercrime.lu@up.gov.in"
+        }
+    },
+    {
+        "s_no": "36",
+        "state_ut": "WEST BENGAL",
+        "nodal_officer": {
+            "name": "Alok Rajoria, IPS",
+            "rank": "DIG-I, Cyber Crime Wing",
+            "email": "ccwwb-ncrp@policewb.gov.in"
+        },
+        "grievance_officer": {
+            "name": "Shri Sanjay Singh, IPS",
+            "rank": "DG & IGP, Cyber Crime Wing",
+            "contact": "33-23248072",
+            "email": "ccwwb-ncrp@policewb.gov.in"
+        }
+    }
+]
