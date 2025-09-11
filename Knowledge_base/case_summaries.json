@@ -1,0 +1,29 @@
+{
+  "landmark_cases": [
+    {
+      "case": "Shreya Singhal vs. Union of India (2015)",
+      "legal_issue": "Freedom of Speech Online, Constitutionality of Section 66A of the IT Act",
+      "significance": "This monumental Supreme Court judgment struck down Section 66A of the IT Act as unconstitutional. The Court found the section's language, which criminalized \"offensive\" or \"annoying\" online messages, to be overly vague and ruled that it had a \"chilling effect\" on the freedom of speech and expression. This case is a cornerstone for protecting internet free speech in India, preventing arrests for posting unpopular or disagreeable content."
+    },
+    {
+      "case": "State of Tamil Nadu vs. Suhas Katti",
+      "legal_issue": "Online Harassment, Defamation, Admissibility of Electronic Evidence",
+      "significance": "This was India's first major conviction for a cybercrime. The accused was found guilty of posting obscene and defamatory messages about a woman in a Yahoo message group. The case was a landmark for its speedy resolution (seven months) and its successful use of electronic evidence to secure a conviction. It set a strong precedent for prosecuting online harassment and defamation under the IT Act and IPC."
+    },
+    {
+      "case": "Avnish Bajaj vs. State (NCT of Delhi) (The \"Baazee.com\" Case)",
+      "legal_issue": "Intermediary Liability, Safe Harbor Provisions (Section 79 of the IT Act)",
+      "significance": "This case was a critical test for the responsibility of website owners for content posted by users. The CEO of Baazee.com was arrested after a user listed an obscene MMS clip for sale. The Supreme Court ultimately ruled that while the content creator is primarily responsible, the intermediary (the website) has a duty to expeditiously remove illegal content upon being notified. This judgment was instrumental in shaping the \"safe harbor\" protections for intermediaries under Section 79 of the IT Act."
+    },
+    {
+      "case": "National Association of Software and Service Companies (NASSCOM) vs. Ajay Sood and Others",
+      "legal_issue": "Corporate Cyber Defamation, Civil Injunctions",
+      "significance": "This was one of India's first cases to address cyber defamation in a corporate context. The defendants were sending defamatory emails to a company's partners, harming its business reputation. The court granted an injunction to stop the defendants, establishing that a company's reputation and goodwill are assets that can be protected from online defamatory attacks through civil law."
+    },
+    {
+      "case": "CBI vs. Arif Azim (The \"Sony Sambandh\" Case)",
+      "legal_issue": "Online Credit Card Fraud, Transnational Cybercrime Prosecution",
+      "significance": "This was one of India's first prominent cases of online credit card fraud. A call center employee used a US citizen's credit card details to purchase items from Sony India's website. The accused was convicted under the Indian Penal Code for cheating. The case was significant because it demonstrated the capability of Indian law enforcement to investigate and prosecute a transnational cybercrime"
+    }
+  ]
+}

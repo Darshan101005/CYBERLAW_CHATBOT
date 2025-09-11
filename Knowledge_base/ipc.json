@@ -1,0 +1,313 @@
+{
+  "ipc_sections": [
+    {
+      "section_number": "500",
+      "title": "Punishment for defamation",
+      "plain_english": "Defaming someone by harming their reputation through words, signs, or publications is punishable.",
+      "official_text": "Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both."
+    },
+    {
+      "section_number": "503",
+      "title": "Criminal intimidation",
+      "plain_english": "Threatening someone to cause fear or force them to act against their will is criminal intimidation.",
+      "official_text": "Whoever threatens another with any injury to his person, reputation or property, or to the person or reputation of any one in whom that person is interested, with intent to cause alarm to that person, or to cause that person to do any act which he is not legally bound to do, or to omit to do any act which that person is legally entitled to do, as the means of avoiding the execution of such threat, commits criminal intimidation.",
+      "explanation": "A threat to injure the reputation of any deceased person in whom the person threatened is interested, is within this section.",
+      "illustration": "A, for the purpose of inducing B to desist from prosecuting a civil suit, threatens to burn B’s house. A is guilty of criminal intimidation."
+    },
+    {
+      "section_number": "506",
+      "title": "Punishment for criminal intimidation",
+      "plain_english": "Threatening someone to cause fear or force them to act against their will is criminal intimidation.",
+      "official_text": "Whoever commits, the offence of criminal intimidation shall be punished with imprison-ment of either description for a term which may extend to two years, or with fine, or with both; If threat be to cause death or grievous hurt, etc.— And if the threat be to cause death or grievous hurt, or to cause the destruction of any property by fire, or to cause an offence punishable with death or imprisonment for life, or with imprisonment for a term which may extend to seven years, or to impute, unchastity to a woman, shall be punished with imprisonment of either description for a term which may extend to seven years, or with fine, or with both."
+    },
+    {
+      "section_number": "507",
+      "title": "Criminal intimidation by an anonymous communication",
+      "plain_english": "Threatening someone to cause fear or force them to act against their will is criminal intimidation.",
+      "official_text": "Whoever commits the offence of criminal intimidation by an anonymous communication, or having taken precaution to conceal the name or abode of the person from whom the threat comes, shall be punished with imprisonment of either description for a term which may extend to two years, in addition to the punishment provided for the offence by the last preceding section."
+    },
+    {
+      "section_number": "292",
+      "title": "Sale, etc., of obscene books, etc.",
+      "plain_english": "Selling, distributing, or showing obscene material is illegal, especially to minors.",
+      "official_text": {
+        "subsection_1": "For the purposes of sub-section (2), a book, pamphlet, paper, writing, drawing, painting, representation, figure or any other object, shall be deemed to be obscene if it is lascivious or appeals to the prurient interest or if its effect, or (where it comprises two or more distinct items) the effect of any one of its items, is, if taken as a whole, such as to tend to deprave and corrupt person, who are likely, having regard to all relevant circumstances, to read, see or hear the matter contained or embodied in it.",
+        "subsection_2": {
+          "main": "Whoever—",
+          "clauses": [
+            "sells, lets to hire, distributes, publicly exhibits or in any manner puts into circulation, or for purposes of sale, hire, distribution, public exhibition or circulation, makes, produces or has in his possession any obscene book, pamphlet, paper, drawing, painting, representation or figure or any other obscene object whatsoever, or",
+            "imports, exports or conveys any obscene object for any of the purposes aforesaid, or knowing or having reason to believe that such object will be sold, let to hire, distributed or publicly exhibited or in any manner put into circulation, or",
+            "takes part in or receives profits from any business in the course of which he knows or has reason to believe that any such obscene objects are for any of the purposes aforesaid, made, produced, purchased, kept, imported, exported, conveyed, publicly exhibited or in any manner put into circulation, or",
+            "advertises or makes known by any means whatsoever that any person is engaged or is ready to engage in any act which is an offence under this section, or that any such obscene object can be procured from or through any person, or",
+            "offers or attempts to do any act which is an offence under this section"
+          ],
+          "punishment": "shall be punished on first conviction with imprisonment of either description for a term which may extend to two years, and with fine which may extend to two thousand rupees, and, in the event of a second or subsequent conviction, with imprisonment of either description for a term which may extend to five years, and also with fine which may extend to five thousand rupees."
+        },
+        "exception": {
+          "intro": "This section does not extend to—",
+          "clauses": [
+            {
+              "clause_id": "a",
+              "text": "any book, pamphlet, paper, writing, drawing, painting, representation or figure—",
+              "sub_clauses": [
+                "the publication of which is proved to be justified as being for the public good on the ground that such book, pamphlet, paper, writing, drawing, painting, representation or figure is in the interest of science, literature, art or learning or other objects of general concern, or",
+                "which is kept or used bona fide for religious purposes;"
+              ]
+            },
+            {
+              "clause_id": "b",
+              "text": "any representation sculptured, engraved, painted or otherwise represented on or in—",
+              "sub_clauses": [
+                "any ancient monument within the meaning of the Ancient Monuments and Archaeological Sites and Remains Act, 1958 (24 of 1958), or",
+                "any temple, or on any car used for the conveyance of idols, or kept or used for any religious purpose."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "section_number": "293",
+      "title": "Sale, etc., of obscene objects to young person",
+      "plain_english": "Selling, distributing, or showing obscene material is illegal, especially to minors.",
+      "official_text": "Whoever sells, lets to hire, distributes, exhibits or circulates to any person under the age of twenty years any such obscene object as is referred to in the last preceding section, or offers or attempts so to do, shall be punished on first conviction with imprisonment of either description for a term which may extend to three years, and with fine which may extend to two thousand rupees, and, in the event of a second or subsequent conviction, with imprisonment of either description for a term which may extend to seven years, and also with fine which may extend to five thousand rupees."
+    },
+    {
+      "section_number": "153A",
+      "title": "Promoting enmity between different groups on grounds of religion, race, place of birth, residence, language, etc., and doing acts prejudicial to maintenance of harmony",
+      "plain_english": "Promoting enmity between groups on grounds like religion, caste, or language is a crime.",
+      "official_text": {
+        "subsection_1": {
+          "main": "Whoever—",
+          "clauses": [
+            "by words, either spoken or written, or by signs or by visible representations or otherwise, promotes or attempts to promote, on grounds of religion, race, place of birth, residence, language, caste or community or any other ground whatsoever, disharmony or feelings of enmity, hatred or ill-will between different religious, racial, language or regional groups or castes or communities, or",
+            "commits any act which is prejudicial to the maintenance of harmony between different religious, racial, language or regional groups or castes or communities, and which disturbs or is likely to disturb the public tranquillity, or",
+            "organizes any exercise, movement, drill or other similar activity intending that the participants in such activity shall use or be trained to use criminal force or violence or knowing it to be likely that the participants in such activity will use or be trained to use criminal force or violence, or participates in such activity intending to use or be trained to use criminal force or violence or knowing it to be likely that the participants in such activity will use or be trained to use criminal force or violence, against any religious, racial, language or regional group or caste or community and such activity for any reason whatsoever causes or is likely to cause fear or alarm or a feeling of insecurity amongst members of such religious, racial, language or regional group or caste or community,"
+          ],
+          "punishment": "shall be punished with imprisonment which may extend to three years, or with fine, or with both."
+        },
+        "subsection_2": {
+          "title": "Offence committed in place of worship, etc.",
+          "text": "Whoever commits an offence specified in sub-section (1) in any place of worship or in any assembly engaged in the performance of religious worship or religious ceremonies, shall be punished with imprisonment which may extend to five years and shall also be liable to fine."
+        }
+      }
+    },
+    {
+      "section_number": "354D",
+      "title": "Stalking",
+      "plain_english": "Repeatedly following, contacting, or monitoring a woman against her will is stalking and is punishable.",
+      "official_text": {
+        "subsection_1": {
+          "main": "Any man who--",
+          "clauses": [
+            "follows a woman and contacts, or attempts to contact such woman to foster personal interaction repeatedly despite a clear indication of disinterest by such woman; or",
+            "monitors the use by a woman of the internet, email or any other form of electronic communication,"
+          ],
+          "conclusion": "commits the offence of stalking:",
+          "proviso": {
+            "intro": "Provided that such conduct shall not amount to stalking if the man who pursued it proves that--",
+            "conditions": [
+              "it was pursued for the purpose of preventing or detecting crime and the man accused of stalking had been entrusted with the responsibility of prevention and detection of crime by the State; or",
+              "it was pursued under any law or to comply with any condition or requirement imposed by any person under any law; or",
+              "in the particular circumstances such conduct was reasonable and justified."
+            ]
+          }
+        },
+        "subsection_2": {
+          "text": "Whoever commits the offence of stalking shall be punished on first conviction with imprisonment of either description for a term which may extend to three years, and shall also be liable to fine; and be punished on a second or subsequent conviction, with imprisonment of either description for a term which may extend to five years, and shall also be liable to fine."
+        }
+      }
+    },
+    {
+      "section_number": "354C",
+      "title": "Voyeurism",
+      "plain_english": "It is a crime to secretly watch, record, or share private images of a woman without consent.",
+      "official_text": "Any man who watches, or captures the image of a woman engaging in a private act in circumstances where she would usually have the expectation of not being observed either by the perpetrator or by any other person at the behest of the perpetrator or disseminates such image shall be punished on first conviction with imprisonment of either description for a term which shall not be less than one year, but which may extend to three years, and shall also be liable to fine, and be punished on a second or subsequent conviction, with imprisonment of either description for a term which shall not be less than three years, but which may extend to seven years, and shall also be liable to fine.",
+      "explanations": [
+        {
+          "number": "1",
+          "text": "For the purpose of this section, \"private act\" includes an act of watching carried out in a place which, in the circumstances, would reasonably be expected to provide privacy and where the victim's genitals, posterior or breasts are exposed or covered only in underwear; or the victim is using a lavatory; or the victim is doing a sexual act that is not of a kind ordinarily done in public."
+        },
+        {
+          "number": "2",
+          "text": "Where the victim consents to the capture of the images or any act, but not to their dissemination to third persons and where such image or act is disseminated, such dissemination shall be considered an offence under this section."
+        }
+      ]
+    },
+    {
+      "section_number": "509",
+      "title": "Word, gesture or act intended to insult the modesty of a woman",
+      "plain_english": "Using words, gestures, or actions to insult or invade a woman’s privacy is a crime.",
+      "official_text": "Whoever, intending to insult the modesty of any woman, utters any words, makes any sound or gesture, or exhibits any object in any form, intending that such word or sound shall be heard, or that such gesture or object shall be seen, by such woman, or intrudes upon the privacy of such woman, shall be punished with simple imprisonment for a term which may extend to three years, and also with fine."
+    },
+    {
+      "section_number": "419",
+      "title": "Punishment for cheating by personation",
+      "plain_english": "Deceiving someone to gain property or advantage is considered cheating and is punishable.",
+      "official_text": "Whoever cheats by personation shall be punished with imprisonment of either de-scription for a term which may extend to three years, or with fine, or with both."
+    },
+    {
+      "section_number": "420",
+      "title": "Cheating and dishonestly inducing delivery of property",
+      "plain_english": "Deceiving someone to gain property or advantage is considered cheating and is punishable.",
+      "official_text": "Whoever cheats and thereby dishonestly induces the person deceived to deliver any property to any person, or to make, alter or destroy the whole or any part of a valuable security, or anything which is signed or sealed, and which is capable of being converted into a valuable security, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine."
+    },
+    {
+      "section_number": "465",
+      "title": "Punishment for forgery",
+      "plain_english": "Making or altering a document with dishonest intent is forgery and is a crime.",
+      "official_text": "Whoever commits forgery shall be punished with imprisonment of either description for a term which may extend to two years, or with fine, or with both."
+    },
+    {
+      "section_number": "468",
+      "title": "Forgery for purpose of cheating",
+      "plain_english": "Deceiving someone to gain property or advantage is considered cheating and is punishable.",
+      "official_text": "Whoever commits forgery, intending that the document or electronic record forged shall be used for the purpose of cheating, shall be punished with imprisonment of either de-scription for a term which may extend to seven years, and shall also be liable to fine."
+    },
+    {
+      "section_number": "469",
+      "title": "Forgery for purpose of harming reputation",
+      "plain_english": "Making or altering a document with dishonest intent is forgery and is a crime.",
+      "official_text": "Whoever commits forgery, intending that the document or electronic record forged shall harm the reputation of any party, or knowing that it is likely to be used for that purpose, shall be punished with imprisonment of either description for a term which may extend to three years, and shall also be liable to fine."
+    },
+    {
+  "section_number": "499",
+  "title": "Defamation",
+  "plain_english": "Defaming someone by harming their reputation through words, signs, or publications is punishable.",
+  "official_text": "Whoever, by words either spoken or intended to be read, or by signs or by visible representations, makes or publishes any imputation concerning any person intending to harm, or knowing or having reason to believe that such imputation will harm, the reputation of such person, is said, except in the cases hereinafter expected, to defame that person.",
+  "explanations": [
+    {
+      "number": "1",
+      "text": "It may amount to defamation to impute anything to a deceased person, if the imputation would harm the reputation of that person if living, and is intended to be hurtful to the feelings of his family or other near relatives."
+    },
+    {
+      "number": "2",
+      "text": "It may amount to defamation to make an imputation concerning a company or an association or collection of persons as such."
+    },
+    {
+      "number": "3",
+      "text": "An imputation in the form of an alternative or expressed ironically, may amount to defamation."
+    },
+    {
+      "number": "4",
+      "text": "No imputation is said to harm a person’s reputation, unless that imputation directly or indirectly, in the estimation of others, lowers the moral or intellectual character of that person, or lowers the character of that person in respect of his caste or of his calling, or lowers the credit of that person, or causes it to be believed that the body of that person is in a loathsome state, or in a state generally considered as disgraceful."
+    }
+  ],
+  "illustrations": [
+    {
+      "case": "a",
+      "text": "A says— “Z is an honest man; he never stole B’s watch”; intending to cause it to be believed that Z did steal B’s watch. This is defamation, unless it fall within one of the exceptions."
+    },
+    {
+      "case": "b",
+      "text": "A is asked who stole B’s watch. A points to Z, intending to cause it to be believed that Z stole B’s watch. This is defamation unless it fall within one of the exceptions."
+    },
+    {
+      "case": "c",
+      "text": "A draws a picture of Z running away with B’s watch, intending it to be believed that Z stole B’s watch. This is defamation, unless it fall within one of the exceptions."
+    }
+  ],
+  "exceptions": [
+    {
+      "name": "First Exception",
+      "title": "Imputation of truth which public good requires to be made or published",
+      "description": "It is not defamation to impute anything which is true concerning any person, if it be for the public good that the imputation should be made or published. Whether or not it is for the public good is a question of fact."
+    },
+    {
+      "name": "Second Exception",
+      "title": "Public conduct of public servants",
+      "description": "It is not defamation to express in a good faith any opinion whatever respecting the conduct of a public servant in the discharge of his public functions, or respecting his character, so far as his character appears in that conduct, and no further."
+    },
+    {
+      "name": "Third Exception",
+      "title": "Conduct of any person touching any public question",
+      "description": "It is not defamation to express in good faith any opinion whatever respecting the conduct of any person touching any public question, and respecting his character, so far as his character appears in that conduct, and no further.",
+      "illustration": "It is not defamation in A to express in good faith any opinion whatever respecting Z’s conduct in petitioning Government on a public question, in signing a requisition for a meeting on a public question, in presiding or attending a such meeting, in forming or joining any society which invites the public support, in voting or canvassing for a particular candidate for any situation in the efficient discharges of the duties of which the public is interested."
+    },
+    {
+      "name": "Fourth Exception",
+      "title": "Publication of reports of proceedings of Courts",
+      "description": "It is not defamation to publish substantially true report of the proceedings of a Court of Justice, or of the result of any such proceedings.",
+      "explanation": "A Justice of the Peace or other officer holding an inquiry in open Court preliminary to a trial in a Court of Justice, is a Court within the meaning of the above section."
+    },
+    {
+      "name": "Fifth Exception",
+      "title": "Merits of case decided in Court or conduct of witnesses and others concerned",
+      "description": "It is not defamation to express in good faith any opinion whatever respecting the merits of any case, civil or criminal, which has been decided by a Court of Justice, or respecting the conduct of any person as a party, witness or agent, in any such case, or respecting the character of such person, as far as his character appears in that conduct, and no further.",
+      "illustrations": [
+        {
+          "case": "a",
+          "text": "A says—“I think Z’s evidence on that trial is so contradictory that he must be stupid or dishonest”. A is within this exception if he says this is in good faith, in as much as the opinion which he expresses respects Z’s character as it appears in Z’s conduct as a witness, and no further."
+        },
+        {
+          "case": "b",
+          "text": "But if A says—“I do not believe what Z asserted at that trial because I know him to be a man without veracity”; A is not within this exception, in as much as the opinion which expresses of Z’s character, is an opinion not founded on Z’s conduct as a witness."
+        }
+      ]
+    },
+    {
+      "name": "Sixth Exception",
+      "title": "Merits of public performance",
+      "description": "It is not defamation to express in good faith any opinion respecting the merits of any performance which its author has submitted to the judgment of the public, or respecting the character of the author so far as his character appears in such performance, and no further.",
+      "explanation": "A performance may be substituted to the judgment of the public expressly or by acts on the part of the author which imply such submission to the judgment of the public.",
+      "illustrations": [
+        {
+          "case": "a",
+          "text": "A person who publishes a book, submits that book to the judgment of the public."
+        },
+        {
+          "case": "b",
+          "text": "A person who makes a speech in public, submits that speech to the judgment of the public."
+        },
+        {
+          "case": "c",
+          "text": "An actor or singer who appears on a public stage, submits his acting or signing in the judgment of the public."
+        },
+        {
+          "case": "d",
+          "text": "A says of a book published by Z— Z’s book is foolish; Z must be a weak man. Z’s book is indecent; Z must be a man of impure mind”. A is within the exception, if he says this in good faith, in as much as the opinion which he expresses of Z respects Z’s character only so far as it appears in Z’s book, and no further."
+        },
+        {
+          "case": "e",
+          "text": "But if A says— “I am not surprised that Z’s book is foolish and indecent, for he is a weak man and a libertine”. A is not within this exception, in as much as the opinion which he expresses of Z’s character is an opinion not founded on Z’s book."
+        }
+      ]
+    },
+    {
+      "name": "Seventh Exception",
+      "title": "Censure passed in good faith by person having lawful authority over another",
+      "description": "It is not defamation in a person having over another any authority, either conferred by law or arising out of a lawful contract made with that other, to pass in good faith any censure on the conduct of that other in matters to which such lawful authority relates.",
+      "illustration": "A Judge censuring in good faith the conduct of a witness, or of an officer of the Court; a head of a department censuring in good faith those who are under his orders; a parent censuring in good faith a child in the presence of other children; a school-master, whose authority is derived from a parent, censuring in good faith a pupil in the presence of other pupils; a master censuring a servant in good faith for remissness in service; a banker censuring in good faith the cashier of his bank for the conduct of such cashier as such cashier—are within this exception."
+    },
+    {
+      "name": "Eighth Exception",
+      "title": "Accusation preferred in good faith to authorised person",
+      "description": "It is not defamation to prefer in good faith an accusation against any person to any of those who have lawful authority over that person with respect to the subject-matter of accusation.",
+      "illustration": "If A in good faith accuse Z before a Magistrate; if A in good faith complains of the conduct of Z, a servant, to Z’s master; if A in good faith complains of the conduct of Z, a child, to Z’s father—A is within this exception."
+    },
+    {
+      "name": "Ninth Exception",
+      "title": "Imputation made in good faith by person for protection of his or other’s interests",
+      "description": "It is not defamation to make an imputation on the character of another provided that the imputation be made in good faith for the protection of the interests of the person making it, or of any other person, or for the public good.",
+      "illustrations": [
+        {
+          "case": "a",
+          "text": "A, a shopkeeper, says to B, who manages his business— “Sell nothing to Z unless he pays you ready money, for I have no opinion of his honesty”. A is within the exception, if he has made this imputation on Z in good faith for the protection of his own interests."
+        },
+        {
+          "case": "b",
+          "text": "A, a Magistrate, in making a report of his own superior officer, casts an imputation on the character of Z. Here, if the imputation is made in good faith, and for the public good, A is within the exception."
+        }
+      ]
+    },
+    {
+      "name": "Tenth Exception",
+      "title": "Caution intended for good of person to whom conveyed or for public good",
+      "description": "It is not defamation to convey a caution, in good faith, to one person against another, provided that such caution be intended for the good of the person to whom it is conveyed, or of some person in whom that person is interested, or for the public good."
+    }
+  ]
+}
+  ]
+}
+    
+    

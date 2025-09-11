@@ -1,0 +1,85 @@
+{
+  "cybercrime_reporting_guide": {
+    "introduction": "This guide provides the official steps for reporting cybercrime in India. The two primary methods are the National Cyber Crime Helpline (1930) for immediate financial fraud and the National Cyber Crime Reporting Portal (www.cybercrime.gov.in) for all types of cybercrime.",
+    
+    "financial_fraud_reporting": {
+      "title": "Immediate Action for Financial Fraud: Call 1930",
+      "description": "If you have lost money through any online financial fraud (e.g., UPI scam, phishing, credit/debit card fraud), your first and most critical step is to call the National Cyber Crime Helpline Number: 1930",
+      "details": {
+        "purpose": "This helpline is part of the Citizen Financial Cyber Fraud Reporting and Management System",
+        "benefit": "Reporting immediately increases the chance of blocking the fraudulent transaction and recovering your money"
+      }
+    },
+
+    "national_portal": {
+      "title": "Primary Method for All Cybercrimes: The National Portal",
+      "website": "www.cybercrime.gov.in",
+      "scope": "This portal is used for reporting all cybercrimes, including financial fraud, social media harassment, cyberstalking, data theft, ransomware, etc."
+    },
+
+    "filing_steps": {
+      "title": "Steps to File a Complaint on www.cybercrime.gov.in",
+      "steps": [
+        "Visit the Portal: Go to www.cybercrime.gov.in",
+        "Start Complaint: Click the \"File a Complaint\" button on the homepage",
+        "Accept Terms: Read and accept the terms and conditions",
+        "Choose Crime Category: Select the appropriate option",
+        "Create User ID: Register on the portal by selecting your state and providing a login ID and mobile number to receive an OTP",
+        "Fill Incident Details: Complete the complaint form with accurate information",
+        "Upload Evidence: Attach all the digital evidence you have collected"
+      ],
+      "crime_categories": {
+        "women_child": "Report Women/Child Related Crime: Use this for crimes where the victim is a woman or child (e.g., online harassment, cyberstalking, child pornography). This can be reported anonymously",
+        "other": "Report Other Cybercrime: Use this for all other crimes (e.g., financial fraud, phishing, hacking)"
+      },
+      "required_details": [
+        "Category and sub-category of the crime",
+        "Date, time, and delay in reporting",
+        "The platform where the incident occurred (e.g., Instagram, website, email)",
+        "A detailed description of the incident"
+      ]
+    },
+
+    "evidence_collection": {
+      "title": "How to Collect and Preserve Evidence",
+      "introduction": "Before filing your complaint, gather as much digital evidence as possible. Do not delete anything related to the incident.",
+      "categories": {
+        "online_harassment": [
+          "Take clear screenshots of abusive messages, comments, or fake profiles",
+          "Ensure the URL of the profile/page is visible or noted down"
+        ],
+        "financial_fraud": [
+          "Keep a record of the fraudulent transaction ID",
+          "Save bank statements showing the debit",
+          "Save any SMS or email communication from the scammer"
+        ],
+        "email_scams": [
+          "Save the original email as a file (.eml or .msg)",
+          "Do not just screenshot it",
+          "Use the \"Save As\" or \"Download original\" option in your email client"
+        ],
+        "ransomware": [
+          "Take a clear photograph of the ransom note displayed on your screen"
+        ]
+      }
+    },
+
+    "post_filing_process": {
+      "title": "What Happens After You File a Complaint?",
+      "steps": [
+        {
+          "step": "Acknowledgment",
+          "description": "Upon submission, you will receive a unique acknowledgment number (reference ID) for your complaint"
+        },
+        {
+          "step": "Tracking",
+          "description": "You can use this number to track the status of your complaint on the portal"
+        },
+        {
+          "step": "Forwarding",
+          "description": "The complaint is automatically forwarded to the relevant police authorities (State Cyber Police, District Cyber Cell, etc.) for investigation and further action"
+        }
+      ]
+    }
+  }
+}

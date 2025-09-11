@@ -1,0 +1,140 @@
+{
+  "bns_sections": [
+    {
+      "section_number": "77",
+      "title": "Voyeurism",
+      "summary": "This section defines and punishes voyeurism. It is a crime for a man to secretly watch or capture an image of a woman engaged in a private act where she has a reasonable expectation of privacy. Disseminating such an image, even if it was captured with consent, is also an offense. Punishments are more severe for subsequent convictions.",
+      "full_legal_text": {
+        "main": "Whoever watches, or captures the image of a woman engaging in a private act in circumstances where she would usually have the expectation of not being observed either by the perpetrator or by any other person at the behest of the perpetrator or disseminates such image shall be punished on first conviction with imprisonment of either description for a term which shall not be less than one year, but which may extend to three years, and shall also be liable to fine, and be punished on a second or subsequent conviction, with imprisonment of either description for a term which shall not be less than three years, but which may extend to seven years, and shall also be liable to fine.",
+        "explanations": [
+          {
+            "number": 1,
+            "text": "For the purposes of this section, “private act” includes an act of watching carried out in a place which, in the circumstances, would reasonably be expected to provide privacy and where the victim’s genitals, posterior or breasts are exposed or covered only in underwear; or the victim is using a lavatory; or the victim is doing a sexual act that is not of a kind ordinarily done in public."
+          },
+          {
+            "number": 2,
+            "text": "Where the victim consents to the capture of the images or any act, but not to their dissemination to third persons and where such image or act is disseminated, such dissemination shall be considered an offence under this section."
+          }
+        ]
+      }
+    },
+    {
+      "section_number": "78",
+      "title": "Stalking",
+      "summary": "This section criminalizes stalking. It defines the offense as a man repeatedly following or attempting to contact a woman despite her clear disinterest, or monitoring her use of the internet, email, or other electronic communication. The law provides exceptions for conduct pursued for crime prevention or under legal authority. Penalties increase for a second or subsequent conviction.",
+      "full_legal_text": {
+        "subsection_1": {
+          "main": "Any man who---",
+          "clauses": [
+            {
+              "id": "i",
+              "text": "follows a woman and contacts, or attempts to contact such woman to foster personal interaction repeatedly despite a clear indication of disinterest by such woman; or"
+            },
+            {
+              "id": "ii",
+              "text": "monitors the use by a woman of the internet, e-mail or any other form of electronic communication,"
+            }
+          ],
+          "conclusion": "commits the offence of stalking:",
+          "proviso": {
+            "intro": "Provided that such conduct shall not amount to stalking if the man who pursued it proves that---",
+            "conditions": [
+              {
+                "id": "i",
+                "text": "it was pursued for the purpose of preventing or detecting crime and the man accused of stalking had been entrusted with the responsibility of prevention and detection of crime by the State; or"
+              },
+              {
+                "id": "ii",
+                "text": "it was pursued under any law or to comply with any condition or requirement imposed by any person under any law; or"
+              },
+              {
+                "id": "iii",
+                "text": "in the particular circumstances such conduct was reasonable and justified."
+              }
+            ]
+          }
+        },
+        "subsection_2": "Whoever commits the offence of stalking shall be punished on first conviction with imprisonment of either description for a term which may extend to three years, and shall also be liable to fine; and be punished on a second or subsequent conviction, with imprisonment of either description for a term which may extend to five years, and shall also be liable to fine"
+      }
+    },
+    {
+      "section_number": "79",
+      "title": "Word, gesture or act intended to insult modesty of a woman",
+      "summary": "This section criminalizes acts intended to insult the modesty of a woman. This includes uttering words, making sounds or gestures, or exhibiting any object with the intent that it be seen or heard by a woman, or intruding upon her privacy. The punishment is simple imprisonment for up to three years, along with a fine.",
+      "full_legal_text": "Whoever, intending to insult the modesty of any woman, utters any words, makes any sound or gesture, or exhibits any object in any form, intending that such word or sound shall be heard, or that such gesture or object shall be seen, by such woman, or intrudes upon the privacy of such woman, shall be punished with simple imprisonment for a term which may extend to three years, and also with fine."
+    },
+    {
+      "section_number": "316",
+      "title": "Criminal breach of trust",
+      "summary": "This section defines and punishes criminal breach of trust. The offense occurs when a person who is entrusted with property dishonestly misappropriates it or uses it in violation of a legal contract or direction. The punishment varies depending on the role of the person committing the breach (e.g., clerk, public servant, banker), with penalties ranging from five years to life imprisonment.",
+      "full_legal_text": {
+        "subsection_1": "Whoever, being in any manner entrusted with property, or with any dominion over property, dishonestly misappropriates or converts to his own use that property, or dishonestly uses or disposes of that property in violation of any direction of law prescribing the mode in which such trust is to be discharged, or of any legal contract, express or implied, which he has made touching the discharge of such trust, or wilfully suffers any other person so to do, commits criminal breach of trust.",
+        "subsection_2": "Whoever commits criminal breach of trust shall be punished with imprisonment of either description for a term which may extend to five years, or with fine, or with both.",
+        "subsection_3": "Whoever, being entrusted with property as a carrier, wharfinger or warehouse-keeper, commits criminal breach of trust in respect of such property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+        "subsection_4": "Whoever, being a clerk or servant or employed as a clerk or servant, and being in any manner entrusted in such capacity with property, or with any dominion over property, commits criminal breach of trust in respect of that property, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine.",
+        "subsection_5": "Whoever, being in any manner entrusted with property, or with any dominion over property in his capacity of a public servant or in the way of his business as a banker, merchant, factor, broker, attorney or agent commits criminal breach of trust in respect of that property, shall be punished with imprisonment for life, or with imprisonment of either description for a term which may extend to ten years, and shall also be liable to fine."
+      }
+    },
+    {
+      "section_number": "318",
+      "title": "Cheating",
+      "summary": "This section defines and punishes cheating. The act involves deceiving a person to dishonestly induce them to deliver property, or to do or omit an act that causes harm to their body, mind, reputation, or property. Punishments vary, with a general penalty of up to three years, but increasing to seven years if the cheating involves inducing the delivery of property or valuable security.",
+      "full_legal_text": {
+        "subsection_1": "Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property to any person, or to consent that any person shall retain any property, or intentionally induces the person so deceived to do or omit to do anything which he would not do or omit if he were not so deceived, and which act or omission causes or is likely to cause damage or harm to that person in body, mind, reputation or property, is said to cheat.",
+        "subsection_2": "Whoever cheats shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both.",
+        "subsection_3": "Whoever cheats with the knowledge that he is likely thereby to cause wrongful loss to a person whose interest in the transaction to which the cheating relates, he was bound, either by law, or by a legal contract, to protect, shall be punished with imprisonment of either description for a term which may extend to five years, or with fine, or with both.",
+        "subsection_4": "Whoever cheats and thereby dishonestly induces the person deceived to deliver any property to any person, or to make, alter or destroy the whole or any part of a valuable security, or anything which is signed or sealed, and which is capable of being converted into a valuable security, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine."
+      }
+    },
+    {
+      "section_number": "335",
+      "title": "Making a false document (Forgery)",
+      "summary": "This section defines what constitutes \"making a false document\" or \"false electronic record,\" which is the core of forgery. It covers dishonestly creating, signing, or altering a document to make it appear authentic or created by someone else, including tricking a person into signing a document they don't understand.",
+      "full_legal_text": {
+        "introduction": "A person is said to make a false document or false electronic record---",
+        "clauses": [
+          {
+            "id": "A",
+            "intro": "Who dishonestly or fraudulently---",
+            "sub_clauses": [
+              "makes, signs, seals or executes a document or part of a document;",
+              "makes or transmits any electronic record or part of any electronic record;",
+              "affixes any electronic signature on any electronic record;",
+              "makes any mark denoting the execution of a document or the authenticity of the electronic signature,"
+            ],
+            "intent": "with the intention of causing it to be believed that such document or part of document, electronic record or electronic signature was made, signed, sealed, executed, transmitted or affixed by or by the authority of a person by whom or by whose authority he knows that it was not made, signed, sealed, executed or affixed; or"
+          },
+          {
+            "id": "B",
+            "text": "Who without lawful authority, dishonestly or fraudulently, by cancellation or otherwise, alters a document or an electronic record in any material part thereof, after it has been made, executed or affixed with electronic signature either by himself or by any other person, whether such person be living or dead at the time of such alteration; or"
+          },
+          {
+            "id": "C",
+            "text": "Who dishonestly or fraudulently causes any person to sign, seal, execute or alter a document or an electronic record or to affix his electronic signature on any electronic record knowing that such person by reason of unsoundness of mind or intoxication cannot, or that by reason of deception practised upon him, he does not know the contents of the document or electronic record or the nature of the alteration."
+          }
+        ]
+      }
+    },
+    {
+      "section_number": "337",
+      "title": "Forgery of record of Court or of public register, etc.",
+      "summary": "This section specifies the punishment for forging important records. This includes court documents, public registers (like birth or marriage certificates), government-issued identity cards (like Aadhaar), or any document made by a public servant in their official capacity. The punishment is imprisonment for up to seven years, plus a fine.",
+      "full_legal_text": "Whoever forges a document or an electronic record, purporting to be a record or proceeding of or in a Court or an identity document issued by Government including voter identity card or Aadhaar Card, or a register of birth, marriage or burial, or a register kept by a public servant as such, or a certificate or document purporting to be made by a public servant in his official capacity, or an authority to institute or defend a suit, or to take any proceedings therein, or to confess judgment, or a power of attorney, shall be punished with imprisonment of either description for a term which may extend to seven years, and shall also be liable to fine."
+    },
+    {
+      "section_number": "338",
+      "title": "Forgery of valuable security, will, etc.",
+      "summary": "This section outlines severe penalties for forging documents of high importance, such as a 'valuable security' (a document with financial value), a will, or any authority to transfer money or property. The punishment can be imprisonment for life or for a term up to ten years, along with a fine.",
+      "full_legal_text": "Whoever forges a document which purports to be a valuable security or a will, or an authority to adopt a son, or which purports to give authority to any person to make or transfer any valuable security, or to receive the principal, interest or dividends thereon, or to receive or deliver any money, movable property, or valuable security, or any document purporting to be an acquittance or receipt acknowledging the payment of money, or an acquittance or receipt for the delivery of any movable property or valuable security, shall be punished with imprisonment for life, or with imprisonment of either description for a term which may extend to ten years, and shall also be liable to fine."
+    },
+    {
+      "section_number": "356",
+      "title": "Defamation",
+      "summary": "This section defines the offense of defamation as making or publishing any statement (spoken, written, or visual) about a person with the intent to harm their reputation. The section includes detailed explanations and ten exceptions, such as imputations of truth for the public good, fair criticism of public servants, and opinions on public performances. The punishment for defamation is community service.",
+      "full_legal_text": {
+        "subsection_1": "Whoever, by words either spoken or intended to be read, or by signs or by visible representations, makes or publishes in any manner, any imputation concerning any person intending to harm, or knowing or having reason to believe that such imputation will harm, the reputation of such person, is said, except in the cases hereinafter excepted, to defame that person.",
+        "subsection_2": "Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both, or with community service.",
+        "note": "[Explanations, Illustrations, and Exceptions follow as in the original text]"
+      }
+    
+    }]}
