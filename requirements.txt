@@ -1,7 +1,7 @@
 streamlit
 google-generativeai
 weaviate-client
-googletrans==4.0.2
+googletrans==3.1.0a0
 pandas
 numpy
 python-dotenv
