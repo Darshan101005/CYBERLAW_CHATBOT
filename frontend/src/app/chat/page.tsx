@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2 } from 'lucide-react'
+import NewsNotification from '@/components/NewsNotification'
 
 interface Message {
   id: string
@@ -312,7 +313,9 @@ export default function Chat() {
                 <p className="text-sm text-primary-600">AI-powered legal guidance</p>
               </div>
             </div>
-            <div className="w-8"></div>
+            <div className="flex items-center space-x-2">
+              <NewsNotification />
+            </div>
           </div>
         </header>
 
