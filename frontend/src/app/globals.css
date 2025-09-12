@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* Tailwind v4: Define your design tokens with @theme so utilities like bg-primary-500 work */
+@theme {
+  /* Primary palette */
+  --color-primary-50:  #D8F3DC;
+  --color-primary-100: #B7E4C7;
+  --color-primary-200: #95D5B2;
+  --color-primary-300: #74C69D;
+  --color-primary-400: #3DAC78;
+  --color-primary-500: #2D8F61;
+  --color-primary-600: #236748;
+  --color-primary-700: #1A4F36;
+  --color-primary-800: #123629;
+  --color-primary-900: #052E16;
+
+  /* Surface palette */
+  --color-surface-50:  #D8F3DC;
+  --color-surface-100: #B7E4C7;
+  --color-surface-200: #95D5B2;
+  --color-surface-300: #74C69D;
+  --color-surface-400: #3DAC78;
+  --color-surface-500: #2D8F61;
+  --color-surface-600: #236748;
+  --color-surface-700: #1A4F36;
+  --color-surface-800: #123629;
+  --color-surface-900: #052E16;
+}
+
+/* Custom utilities as global classes for compatibility */
+/* Custom utilities as global classes for compatibility */
+.bg-gradient-hero {
+  background-image: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-200) 50%, var(--color-primary-300) 100%);
+}
+
+.bg-gradient-primary {
+  background-image: linear-gradient(135deg, var(--color-primary-300) 0%, var(--color-primary-400) 100%);
+}
+
+.bg-gradient-mesh {
+  background-image:
+    radial-gradient(circle at 20% 50%, var(--color-primary-50) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--color-primary-200) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, var(--color-primary-300) 0%, transparent 50%);
+}
+
+/* Shadows */
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(116, 198, 157, 0.4);
+}
+
+.shadow-medium {
+  box-shadow: 0 10px 15px -3px rgba(116, 198, 157, 0.10);
+}
+
+.shadow-large {
+  box-shadow: 0 25px 50px -12px rgba(116, 198, 157, 0.25);
+}
+
+.shadow-soft {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(116, 198, 157, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(116, 198, 157, 0.6); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Base resets and transitions */
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
