@@ -3,11 +3,12 @@
 import { useState, useRef, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
-import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2, Edit3, Check, X, Paperclip, Upload, FileText, CheckSquare, ScrollText } from 'lucide-react'
+import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2, Edit3, Check, X, Paperclip, Upload, FileText, CheckSquare, ScrollText, Brain } from 'lucide-react'
 import NewsNotification from '@/components/NewsNotification'
 import ChatMessage from '@/components/ChatMessage'
 import ChecklistGenerator from '@/components/ChecklistGenerator'
 import LatestAmendments from '@/components/LatestAmendments'
+import CyberLawQuiz from '@/components/CyberLawQuiz'
 
 interface Message {
   id: string
@@ -37,6 +38,7 @@ export default function Chat() {
   const [uploadedFileName, setUploadedFileName] = useState<string>('')
   const [showChecklist, setShowChecklist] = useState(false)
   const [showAmendments, setShowAmendments] = useState(false)
+  const [showQuiz, setShowQuiz] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
 
@@ -485,6 +487,13 @@ export default function Chat() {
                 <ScrollText className="w-5 h-5" />
               </button>
               <button
+                onClick={() => setShowQuiz(true)}
+                className="p-3 text-orange-600 hover:text-orange-800 hover:bg-orange-100 rounded-xl transition-all duration-200 tooltip"
+                title="Cyber Law Knowledge Quiz"
+              >
+                <Brain className="w-5 h-5" />
+              </button>
+              <button
                 onClick={() => setShowChecklist(true)}
                 className="p-3 text-primary-600 hover:text-primary-800 hover:bg-primary-100 rounded-xl transition-all duration-200 tooltip"
                 title="Complaint Checklist Generator"
@@ -666,6 +675,12 @@ export default function Chat() {
       <LatestAmendments 
         isOpen={showAmendments} 
         onClose={() => setShowAmendments(false)} 
+      />
+
+      {/* Cyber Law Quiz Modal */}
+      <CyberLawQuiz 
+        isOpen={showQuiz} 
+        onClose={() => setShowQuiz(false)} 
       />
 
       {/* Checklist Generator Modal */}
