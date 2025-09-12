@@ -3,9 +3,11 @@
 import { useState, useRef, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
-import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2, Edit3, Check, X, Paperclip, Upload, FileText } from 'lucide-react'
+import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2, Edit3, Check, X, Paperclip, Upload, FileText, CheckSquare, ScrollText } from 'lucide-react'
 import NewsNotification from '@/components/NewsNotification'
 import ChatMessage from '@/components/ChatMessage'
+import ChecklistGenerator from '@/components/ChecklistGenerator'
+import LatestAmendments from '@/components/LatestAmendments'
 
 interface Message {
   id: string
@@ -33,6 +35,8 @@ export default function Chat() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [showFileUpload, setShowFileUpload] = useState(false)
   const [uploadedFileName, setUploadedFileName] = useState<string>('')
+  const [showChecklist, setShowChecklist] = useState(false)
+  const [showAmendments, setShowAmendments] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
 
@@ -473,6 +477,20 @@ export default function Chat() {
               </div>
             </div>
             <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setShowAmendments(true)}
+                className="p-3 text-orange-600 hover:text-orange-800 hover:bg-orange-100 rounded-xl transition-all duration-200 tooltip"
+                title="Latest Amendments & Updates"
+              >
+                <ScrollText className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => setShowChecklist(true)}
+                className="p-3 text-primary-600 hover:text-primary-800 hover:bg-primary-100 rounded-xl transition-all duration-200 tooltip"
+                title="Complaint Checklist Generator"
+              >
+                <CheckSquare className="w-5 h-5" />
+              </button>
               <NewsNotification />
             </div>
           </div>
@@ -643,6 +661,18 @@ export default function Chat() {
           </div>
         </div>
       </div>
+
+      {/* Latest Amendments Modal */}
+      <LatestAmendments 
+        isOpen={showAmendments} 
+        onClose={() => setShowAmendments(false)} 
+      />
+
+      {/* Checklist Generator Modal */}
+      <ChecklistGenerator 
+        isOpen={showChecklist} 
+        onClose={() => setShowChecklist(false)} 
+      />
     </div>
   )
 }

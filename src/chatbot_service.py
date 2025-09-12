@@ -392,6 +392,166 @@ RESPONSE:"""
             print(f"Error processing query: {e}")
             return "I apologize, but I encountered an error while processing your question. Please try again later."
     
+    def generate_dynamic_checklist(self, complaint_type: str) -> dict:
+        """Generate a dynamic checklist based on complaint type using AI"""
+        try:
+            print(f"Generating dynamic checklist for: {complaint_type}")
+            
+            # Enhanced search for relevant checklist information
+            search_results = self.searcher.comprehensive_search(f"complaint checklist {complaint_type} required documents evidence")
+            
+            # Build context from search results
+            context_parts = []
+            
+            if search_results.get('cyberlaw'):
+                context_parts.append("=== RELEVANT LEGAL REQUIREMENTS ===")
+                for result in search_results['cyberlaw']:
+                    context_parts.append(f"Section {result['section_number']}: {result['title']}")
+                    context_parts.append(f"Content: {result['content']}")
+                    context_parts.append("")
+            
+            if search_results.get('faq'):
+                context_parts.append("=== COMPLAINT GUIDANCE ===")
+                for result in search_results['faq']:
+                    context_parts.append(f"Q: {result['question']}")
+                    context_parts.append(f"A: {result['answer']}")
+                    context_parts.append("")
+            
+            context = "\n".join(context_parts)
+            
+            # Create prompt for checklist generation
+            prompt = f"""
+You are Cyberlex, a professional cyber law assistant. Generate a comprehensive, customized checklist for filing a complaint about "{complaint_type}".
+
+CONTEXT:
+{context}
+
+INSTRUCTIONS:
+1. Create a detailed, practical checklist specific to "{complaint_type}"
+2. Categorize items as Mandatory, Optional, and Financial (if applicable)
+3. Include specific file formats, size limits, and requirements
+4. Be comprehensive and professional
+5. Focus on what complainants actually need to prepare
+
+Generate a JSON response with this EXACT structure:
+{{
+    "title": "Checklist for {complaint_type} Complaint",
+    "complaint_type": "{complaint_type}",
+    "mandatory": [
+        "Item 1 with specific details",
+        "Item 2 with file format requirements",
+        "Item 3 with size limits"
+    ],
+    "optional": [
+        "Optional item 1",
+        "Optional item 2"
+    ],
+    "financial": [
+        "Financial item 1 (only if financial crime)",
+        "Financial item 2"
+    ],
+    "tips": [
+        "Helpful tip 1 for this complaint type",
+        "Helpful tip 2 specific to {complaint_type}"
+    ]
+}}
+
+SPECIFIC REQUIREMENTS FOR DIFFERENT COMPLAINT TYPES:
+- FINANCIAL FRAUD: Include bank details, transaction IDs, amounts
+- SOCIAL MEDIA: Include screenshots, URLs, account details
+- HACKING: Include system logs, incident timeline, affected accounts
+- IDENTITY THEFT: Include identity documents, fraudulent accounts
+- CYBERBULLYING: Include evidence, conversation screenshots
+- DATA BREACH: Include affected data, security measures, impact assessment
+
+Provide ONLY the JSON response, no additional text.
+"""
+
+            response = self.model.generate_content(prompt)
+            
+            if response and response.text:
+                try:
+                    # Try to parse as JSON
+                    import json
+                    response_text = response.text.strip()
+                    
+                    # Clean up response if it has markdown formatting
+                    if response_text.startswith('```json'):
+                        response_text = response_text.replace('```json', '').replace('```', '').strip()
+                    elif response_text.startswith('```'):
+                        response_text = response_text.replace('```', '').strip()
+                    
+                    checklist_data = json.loads(response_text)
+                    
+                    # Validate structure
+                    required_keys = ['title', 'mandatory', 'optional']
+                    if all(key in checklist_data for key in required_keys):
+                        return checklist_data
+                    else:
+                        print("Invalid checklist structure, using fallback")
+                        return self._get_fallback_checklist(complaint_type)
+                        
+                except json.JSONDecodeError as e:
+                    print(f"JSON parse error: {e}")
+                    print(f"Response text: {response.text}")
+                    return self._get_fallback_checklist(complaint_type)
+            else:
+                return self._get_fallback_checklist(complaint_type)
+                
+        except Exception as e:
+            print(f"Error generating dynamic checklist: {e}")
+            return self._get_fallback_checklist(complaint_type)
+    
+    def _get_fallback_checklist(self, complaint_type: str) -> dict:
+        """Fallback checklist when AI generation fails"""
+        base_checklist = {
+            "title": f"Checklist for {complaint_type} Complaint",
+            "complaint_type": complaint_type,
+            "mandatory": [
+                "Incident Date and Time",
+                "Detailed incident description (minimum 200 characters) without special characters (#$@^*`''~|!)",
+                "Soft copy of national ID (Voter ID, Driving License, Passport, PAN Card, Aadhar Card) in .jpeg, .jpg, .png format (max 5 MB)",
+                "All relevant evidence related to the cyber crime (max 10 MB each)"
+            ],
+            "optional": [
+                "Suspected website URLs/Social Media handles (if applicable)",
+                "Suspect details: mobile number, email ID, bank account, address",
+                "Photograph of suspect in .jpeg, .jpg, .png format (max 5 MB)",
+                "Any other documents for suspect identification"
+            ],
+            "financial": [],
+            "tips": [
+                "Ensure all documents are clear and readable",
+                "Take screenshots of digital evidence before they disappear",
+                "Keep original copies of all documents safe"
+            ]
+        }
+        
+        # Add specific items based on complaint type
+        complaint_lower = complaint_type.lower()
+        
+        if any(keyword in complaint_lower for keyword in ['financial', 'fraud', 'money', 'bank', 'payment']):
+            base_checklist["financial"] = [
+                "Name of Bank/Wallet/Merchant involved",
+                "12-digit Transaction ID/UTR Number",
+                "Date and time of fraudulent transaction",
+                "Exact fraud amount",
+                "Bank statement showing the transaction"
+            ]
+            
+        if any(keyword in complaint_lower for keyword in ['social', 'facebook', 'instagram', 'twitter', 'whatsapp']):
+            base_checklist["mandatory"].append("Screenshots of offending posts/messages")
+            base_checklist["optional"].append("Social media profile URLs of suspect")
+            
+        if any(keyword in complaint_lower for keyword in ['hacking', 'unauthorized', 'access', 'breach']):
+            base_checklist["mandatory"].extend([
+                "System logs showing unauthorized access",
+                "Timeline of when unauthorized access was discovered",
+                "List of affected accounts/systems"
+            ])
+            
+        return base_checklist
+    
     def handle_complaint_initiation(self, user_input: str) -> str:
         """Handle complaint collection initiation"""
         try:
@@ -455,6 +615,254 @@ RESPONSE:"""
         """Clean up resources"""
         if hasattr(self, 'searcher'):
             self.searcher.close()
+
+    def generate_dynamic_checklist(self, complaint_type: str) -> dict:
+        """Generate a dynamic, AI-powered checklist based on complaint type"""
+        try:
+            print(f"Generating dynamic checklist for: {complaint_type}")
+            
+            # Use AI to generate customized checklist
+            prompt = f"""
+You are Cyberlex, a professional cyber law assistant. Generate a comprehensive, customized checklist for filing a complaint about "{complaint_type}".
+
+Based on the complaint type "{complaint_type}", provide a specific and actionable checklist. Consider what evidence and information would be most important for this particular type of cyber crime.
+
+Provide your response in this EXACT JSON format:
+
+{{
+    "title": "Checklist for {complaint_type} Complaint",
+    "mandatory": [
+        {{
+            "item": "Specific evidence item",
+            "description": "Detailed description of what exactly is needed for {complaint_type} cases",
+            "format": "File format or specification if applicable"
+        }}
+    ],
+    "optional": [
+        {{
+            "item": "Additional helpful item",
+            "description": "How this specifically helps with {complaint_type} investigations",
+            "format": "Format requirements if any"
+        }}
+    ],
+    "specific_tips": [
+        "Actionable tip specific to {complaint_type}",
+        "Another tip focused on {complaint_type} evidence collection"
+    ]
+}}
+
+For "{complaint_type}" specifically focus on:
+
+1. What digital evidence is most crucial?
+2. What platform-specific information is needed?
+3. What documentation helps law enforcement?
+4. What technical details matter for this crime type?
+5. What immediate actions should victims take?
+
+Make each item highly specific to "{complaint_type}" rather than generic cyber crime advice.
+
+Generate the JSON response:
+"""
+
+            # Generate AI response
+            response = self.model.generate_content(prompt)
+            
+            if response and response.text:
+                try:
+                    import json
+                    response_text = response.text.strip()
+                    
+                    # Clean up response if it has markdown formatting
+                    if response_text.startswith('```json'):
+                        response_text = response_text.replace('```json', '').replace('```', '')
+                    elif response_text.startswith('```'):
+                        response_text = response_text.replace('```', '')
+                    
+                    checklist_data = json.loads(response_text)
+                    print(f"Successfully generated dynamic checklist with {len(checklist_data.get('mandatory', []))} mandatory items")
+                    return checklist_data
+                    
+                except json.JSONDecodeError as e:
+                    print(f"Failed to parse JSON response: {e}")
+                    print(f"Raw response: {response.text}")
+                    return self._generate_fallback_checklist(complaint_type)
+            else:
+                print("No response from AI model")
+                return self._generate_fallback_checklist(complaint_type)
+                
+        except Exception as e:
+            print(f"Error generating dynamic checklist: {e}")
+            return self._generate_fallback_checklist(complaint_type)
+    
+    def _generate_fallback_checklist(self, complaint_type: str) -> dict:
+        """Generate a fallback checklist when AI fails - customized by complaint type"""
+        
+        complaint_lower = complaint_type.lower()
+        
+        if "social media" in complaint_lower or "profile" in complaint_lower or "fake" in complaint_lower:
+            return {
+                "title": f"Checklist for {complaint_type} Complaint",
+                "mandatory": [
+                    {
+                        "item": "Fake Profile Screenshots",
+                        "description": "Complete screenshots of the fake profile showing display name, username, profile picture, bio, posts, and follower count",
+                        "format": ".jpeg, .jpg, .png | Max size: 5 MB each"
+                    },
+                    {
+                        "item": "Your Original Profile Evidence", 
+                        "description": "Screenshots of your legitimate profile to prove identity theft and show the original content being misused",
+                        "format": ".jpeg, .jpg, .png | Max size: 5 MB each"
+                    },
+                    {
+                        "item": "Profile URL and Username",
+                        "description": "Direct link to the fake profile and exact username before it gets deleted or changed",
+                        "format": "Complete URL and username text"
+                    },
+                    {
+                        "item": "Discovery Date and Method",
+                        "description": "When and how you discovered the fake profile (friend told you, found while searching, etc.)",
+                        "format": "Date, time, and detailed explanation"
+                    },
+                    {
+                        "item": "Misused Content Evidence",
+                        "description": "Screenshots showing your original photos/content being used on the fake profile",
+                        "format": "Side-by-side comparison screenshots"
+                    },
+                    {
+                        "item": "Impact Documentation",
+                        "description": "Evidence of how the fake profile has affected you (messages from confused friends, business impact, etc.)",
+                        "format": "Screenshots of conversations or written statements"
+                    }
+                ],
+                "optional": [
+                    {
+                        "item": "Platform Report Reference",
+                        "description": "Reference number if you've already reported to the social media platform",
+                        "format": "Platform complaint ID or case number"
+                    },
+                    {
+                        "item": "Suspect Clues",
+                        "description": "Any information that might help identify who created the fake profile",
+                        "format": "Phone numbers, email addresses, mutual connections, or behavioral patterns"
+                    },
+                    {
+                        "item": "Communication from Fake Profile", 
+                        "description": "Screenshots of any messages, comments, or posts made by the fake profile",
+                        "format": "Full conversation screenshots with timestamps"
+                    }
+                ],
+                "specific_tips": [
+                    "Screenshot everything immediately - fake profiles can be deleted quickly",
+                    "Save the profile URL and username before reporting to the platform",
+                    "Document any financial or reputational damage caused",
+                    "Report to the platform first, then file police complaint with reference number",
+                    "Keep evidence of your original content that was stolen"
+                ]
+            }
+        
+        elif "financial" in complaint_lower or "fraud" in complaint_lower or "money" in complaint_lower:
+            return {
+                "title": f"Checklist for {complaint_type} Complaint", 
+                "mandatory": [
+                    {
+                        "item": "Complete Transaction History",
+                        "description": "Bank statements showing all fraudulent transactions with timestamps and amounts",
+                        "format": "PDF bank statements, transaction SMS screenshots"
+                    },
+                    {
+                        "item": "Fraudulent Communication",
+                        "description": "Screenshots of fake messages, emails, or calls that led to the fraud",
+                        "format": ".jpeg, .jpg, .png | Include phone numbers and timestamps"
+                    },
+                    {
+                        "item": "12-digit Transaction ID/UTR",
+                        "description": "Unique transaction reference number for each fraudulent transaction",
+                        "format": "Exact 12-digit number from bank SMS or app"
+                    },
+                    {
+                        "item": "Beneficiary Account Details",
+                        "description": "Account number, IFSC code, and bank name where your money was transferred",
+                        "format": "Complete banking details from transaction receipt"
+                    }
+                ],
+                "optional": [
+                    {
+                        "item": "Fraud Website/App Details",
+                        "description": "Screenshots and URLs of fake websites or apps used in the fraud",
+                        "format": "Full page screenshots with URL visible"
+                    },
+                    {
+                        "item": "Bank Complaint Reference",
+                        "description": "Reference number from your bank's fraud complaint",
+                        "format": "Bank complaint number and date"
+                    }
+                ],
+                "specific_tips": [
+                    "Report to bank immediately to freeze further transactions",
+                    "File complaint within 24 hours for better recovery chances", 
+                    "Save all communication with fraudsters",
+                    "Document the fraud method used (fake website, phishing call, etc.)"
+                ]
+            }
+        
+        else:
+            # Generic checklist for other types
+            return {
+                "title": f"Checklist for {complaint_type} Complaint",
+                "mandatory": [
+                    {
+                        "item": "Incident Date and Time",
+                        "description": f"Exact date and time when the {complaint_type.lower()} incident occurred",
+                        "format": "DD/MM/YYYY and HH:MM format"
+                    },
+                    {
+                        "item": "Detailed Incident Report",
+                        "description": f"Comprehensive description of the {complaint_type.lower()} incident including what happened, how it happened, and impact",
+                        "format": "Minimum 200 characters, no special characters (#$@^*`''~|!)"
+                    },
+                    {
+                        "item": "Digital Evidence",
+                        "description": f"All relevant digital evidence including screenshots, files, logs, or communications related to the {complaint_type.lower()}",
+                        "format": "Screenshots, documents, chat logs | Max size: 10 MB each"
+                    },
+                    {
+                        "item": "Identity Verification",
+                        "description": "Government-issued photo identification to verify your identity as the complainant",
+                        "format": "Voter ID, Driving License, Passport, PAN Card, or Aadhar Card | .jpeg, .jpg, .png | Max size: 5 MB"
+                    }
+                ],
+                "optional": [
+                    {
+                        "item": "Suspect Information",
+                        "description": "Any available information about the person/entity responsible for the incident",
+                        "format": "Names, contact details, social media accounts, or any identifying information"
+                    },
+                    {
+                        "item": "Witness Information",
+                        "description": "Details of people who witnessed the incident or can provide supporting testimony",
+                        "format": "Names, contact information, and brief statements"
+                    },
+                    {
+                        "item": "Previous Reports",
+                        "description": "Reference numbers of any previous complaints filed with other agencies or platforms",
+                        "format": "Complaint numbers, dates, and agency names"
+                    }
+                ],
+                "specific_tips": [
+                    f"Preserve all evidence related to {complaint_type.lower()} immediately to prevent loss",
+                    "Document everything with timestamps and detailed descriptions",
+                    "Report to relevant authorities as soon as possible",
+                    "Keep copies of all submitted documents for your records"
+                ]
+            }
+
+    def close(self):
+        """Close all connections"""
+        try:
+            if hasattr(self, 'searcher'):
+                self.searcher.close()
+        except Exception as e:
+            print(f"Error closing connections: {e}")
 
 def main():
     """Non-interactive service that processes a single query from command line arguments or stdin"""

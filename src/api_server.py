@@ -108,6 +108,33 @@ def chat():
             "success": False
         }), 500
 
+@app.route('/api/generate-checklist', methods=['POST', 'OPTIONS'])
+def generate_checklist():
+    if request.method == 'OPTIONS':
+        return '', 200
+    
+    try:
+        data = request.get_json()
+        complaint_type = data.get('complaint_type', '')
+        
+        if not complaint_type:
+            return jsonify({"error": "Complaint type is required"}), 400
+        
+        service = get_chatbot_service()
+        
+        # Generate dynamic checklist using AI
+        checklist_response = service.generate_dynamic_checklist(complaint_type)
+        
+        return jsonify({
+            "checklist": checklist_response,
+            "timestamp": datetime.now().isoformat(),
+            "success": True
+        })
+        
+    except Exception as e:
+        print(f"Error generating checklist: {e}")
+        return jsonify({"error": str(e)}), 500
+
 @app.route('/api/complaint/start', methods=['POST'])
 def start_complaint():
     """

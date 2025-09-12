@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "category": "Foundational Concepts & Terminology",
+    "question": "What is the primary purpose of Cyber Law?",
+    "options": {
+      "a": "To regulate the internet's hardware infrastructure.",
+      "b": "To govern the legal issues related to the use of the internet and information technology.",
+      "c": "To exclusively prosecute hackers.",
+      "d": "To manage the sale of computer software."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 2,
+    "category": "Foundational Concepts & Terminology",
+    "question": "Which of the following best defines 'Cybercrime'?",
+    "options": {
+      "a": "Any crime committed using a computer.",
+      "b": "A criminal activity that involves a computer, networked device, or a network.",
+      "c": "Only financial fraud conducted online.",
+      "d": "The act of sending spam emails."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 3,
+    "category": "Foundational Concepts & Terminology",
+    "question": "In the context of cyber law, what does 'Jurisdiction' refer to?",
+    "options": {
+      "a": "The type of computer used to commit a crime.",
+      "b": "The legal authority of a court or government to hear a case and enforce laws.",
+      "c": "The speed of the internet connection.",
+      "d": "The software used to browse the internet."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 4,
+    "category": "Foundational Concepts & Terminology",
+    "question": "The Information Technology Act, 2000 is the primary cyber law of which country?",
+    "options": {
+      "a": "United States",
+      "b": "United Kingdom",
+      "c": "India",
+      "d": "Australia"
+    },
+    "answer": "c"
+  },
+  {
+    "id": 5,
+    "category": "Foundational Concepts & Terminology",
+    "question": "What is the main function of a Digital Signature?",
+    "options": {
+      "a": "To encrypt the entire content of a document.",
+      "b": "To provide a secure and authentic way to sign electronic documents.",
+      "c": "To hide the sender's identity.",
+      "d": "To scan a handwritten signature."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 6,
+    "category": "Foundational Concepts & Terminology",
+    "question": "'Personally Identifiable Information' (PII) refers to:",
+    "options": {
+      "a": "Any data about a computer.",
+      "b": "Information that can be used to identify, contact, or locate a single person.",
+      "c": "Publicly available information like news articles.",
+      "d": "Any file stored on a personal computer."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 7,
+    "category": "Foundational Concepts & Terminology",
+    "question": "The process of collecting, processing, and analyzing digital evidence from computer systems is known as:",
+    "options": {
+      "a": "Cyber Hacking",
+      "b": "Data Encryption",
+      "c": "Cyber Forensics",
+      "d": "Network Security"
+    },
+    "answer": "c"
+  },
+  {
+    "id": 8,
+    "category": "Data Privacy and Protection",
+    "question": "What is the main objective of a Data Protection Law?",
+    "options": {
+      "a": "To ensure all data is stored in the cloud.",
+      "b": "To protect individuals' fundamental right to privacy with respect to their personal data.",
+      "c": "To make all personal data publicly accessible.",
+      "d": "To regulate the price of data storage."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 9,
+    "category": "Data Privacy and Protection",
+    "question": "In data privacy, 'Consent' must be:",
+    "options": {
+      "a": "Assumed unless the user objects.",
+      "b": "Freely given, specific, informed, and unambiguous.",
+      "c": "Hidden in the terms and conditions.",
+      "d": "Obtained only after the data has been collected."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 10,
+    "category": "Data Privacy and Protection",
+    "question": "A 'Data Breach' is an incident where:",
+    "options": {
+      "a": "A computer's hard drive fails.",
+      "b": "Information is accessed, disclosed, or stolen without authorization.",
+      "c": "A user forgets their password.",
+      "d": "A website is temporarily unavailable."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 11,
+    "category": "Data Privacy and Protection",
+    "question": "The primary purpose of encrypting data is to:",
+    "options": {
+      "a": "Make the data larger in size.",
+      "b": "Delete the data permanently.",
+      "c": "Protect its confidentiality and prevent unauthorized access.",
+      "d": "Make the data transfer faster."
+    },
+    "answer": "c"
+  },
+  {
+    "id": 12,
+    "category": "Data Privacy and Protection",
+    "question": "The 'Right to be Forgotten' gives an individual the right to:",
+    "options": {
+      "a": "Change their name online.",
+      "b": "Delete their social media accounts.",
+      "c": "Request the removal of their personal data from online platforms under certain conditions.",
+      "d": "Forget their online passwords without consequence."
+    },
+    "answer": "c"
+  },
+  {
+    "id": 13,
+    "category": "Data Privacy and Protection",
+    "question": "What is 'Data Minimization'?",
+    "options": {
+      "a": "The practice of collecting as much data as possible.",
+      "b": "The principle that only data that is necessary for a specific purpose should be collected.",
+      "c": "The process of compressing data to save space.",
+      "d": "The act of deleting old data after one day."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 14,
+    "category": "Common Cybercrimes",
+    "question": "What is 'Phishing'?",
+    "options": {
+      "a": "A method of improving the speed of a network connection.",
+      "b": "The act of illegally catching fish using technology.",
+      "c": "A fraudulent attempt to obtain sensitive information like usernames and passwords by disguising as a trustworthy entity.",
+      "d": "A type of computer virus that deletes files."
+    },
+    "answer": "c"
+  },
+  {
+    "id": 15,
+    "category": "Common Cybercrimes",
+    "question": "'Hacking' is best described as:",
+    "options": {
+      "a": "Legally testing a system's security.",
+      "b": "Gaining unauthorized access to a computer system or network.",
+      "c": "Writing computer code.",
+      "d": "Using a computer for a long time."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 16,
+    "category": "Common Cybercrimes",
+    "question": "Malicious software designed to disrupt, damage, or gain unauthorized access to a computer system is called:",
+    "options": {
+      "a": "Firmware",
+      "b": "Adware",
+      "c": "Malware",
+      "d": "Shareware"
+    },
+    "answer": "c"
+  },
+  {
+    "id": 17,
+    "category": "Common Cybercrimes",
+    "question": "A 'Denial-of-Service' (DoS) attack is designed to:",
+    "options": {
+      "a": "Steal a user's password.",
+      "b": "Make a machine or network resource unavailable to its intended users.",
+      "c": "Encrypt a user's files and demand a ransom.",
+      "d": "Install an advertisement on a user's screen."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 18,
+    "category": "Common Cybercrimes",
+    "question": "Using the internet or other electronic means to stalk or harass an individual is known as:",
+    "options": {
+      "a": "Cyberbullying",
+      "b": "Cyberstalking",
+      "c": "Trolling",
+      "d": "Doxing"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 19,
+    "category": "Common Cybercrimes",
+    "question": "Illegally impersonating another person online to commit fraud is known as:",
+    "options": {
+      "a": "Identity Theft",
+      "b": "Plagiarism",
+      "c": "Copyright Infringement",
+      "d": "Spoofing"
+    },
+    "answer": "a"
+  },
+  {
+    "id": 20,
+    "category": "Common Cybercrimes",
+    "question": "A type of malware that encrypts a victim's files and demands payment for the decryption key is called:",
+    "options": {
+      "a": "Spyware",
+      "b": "Virus",
+      "c": "Worm",
+      "d": "Ransomware"
+    },
+    "answer": "d"
+  },
+  {
+    "id": 21,
+    "category": "Intellectual Property in Cyberspace",
+    "question": "Copyright law primarily protects:",
+    "options": {
+      "a": "Brand names and logos.",
+      "b": "Inventions and processes.",
+      "c": "Original works of authorship like articles, music, and software code.",
+      "d": "A person's identity."
+    },
+    "answer": "c"
+  },
+  {
+    "id": 22,
+    "category": "Intellectual Property in Cyberspace",
+    "question": "A trademark is designed to protect:",
+    "options": {
+      "a": "The text of a book.",
+      "b": "A brand's name, logo, or slogan used to identify goods or services.",
+      "c": "A secret recipe.",
+      "d": "A new type of machine."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 23,
+    "category": "Intellectual Property in Cyberspace",
+    "question": "Unauthorized copying, distribution, or use of software is known as:",
+    "options": {
+      "a": "Software Piracy",
+      "b": "Open Source",
+      "c": "Freeware",
+      "d": "Cloud Computing"
+    },
+    "answer": "a"
+  },
+  {
+    "id": 24,
+    "category": "Intellectual Property in Cyberspace",
+    "question": "The act of registering a domain name that is the trademark of another person or company with the intent to profit from it is called:",
+    "options": {
+      "a": "Domain Hijacking",
+      "b": "Cybersquatting",
+      "c": "Phishing",
+      "d": "Domain Tasting"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 25,
+    "category": "Intellectual Property in Cyberspace",
+    "question": "'Fair Use' or 'Fair Dealing' is a legal doctrine that allows:",
+    "options": {
+      "a": "Using any copyrighted material for commercial purposes.",
+      "b": "Limited use of copyrighted material without permission for purposes like criticism or education.",
+      "c": "Distributing copyrighted software for free.",
+      "d": "Ignoring copyright laws completely."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 26,
+    "category": "E-Commerce, Social Media & Online Content",
+    "question": "Is a contract formed via email generally considered legally valid?",
+    "options": {
+      "a": "No, only paper contracts are valid.",
+      "b": "Yes, under most cyber laws, electronic contracts are legally binding.",
+      "c": "Only if it is also sent via post.",
+      "d": "Only if it is for less than a certain monetary value."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 27,
+    "category": "E-Commerce, Social Media & Online Content",
+    "question": "An online platform like Facebook or X (formerly Twitter) that hosts user-generated content is legally known as an:",
+    "options": {
+      "a": "Instigator",
+      "b": "Intermediary",
+      "c": "Aggregator",
+      "d": "Publisher"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 28,
+    "category": "E-Commerce, Social Media & Online Content",
+    "question": "Publishing a false statement online that harms someone's reputation is known as:",
+    "options": {
+      "a": "Trolling",
+      "b": "Cyber Defamation",
+      "c": "Plagiarism",
+      "d": "Spamming"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 29,
+    "category": "E-Commerce, Social Media & Online Content",
+    "question": "The act of searching for and publishing private or identifying information about a particular individual on the internet, typically with malicious intent, is called:",
+    "options": {
+      "a": "Gossiping",
+      "b": "Trolling",
+      "c": "Doxing",
+      "d": "Stalking"
+    },
+    "answer": "c"
+  },
+  {
+    "id": 30,
+    "category": "E-Commerce, Social Media & Online Content",
+    "question": "An agreement you accept by clicking 'I Agree' on a website is called a:",
+    "options": {
+      "a": "Browse-wrap agreement",
+      "b": "Click-wrap agreement",
+      "c": "Verbal agreement",
+      "d": "Unenforceable agreement"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 31,
+    "category": "E-Commerce, Social Media & Online Content",
+    "question": "The legal protection that often shields intermediaries from liability for what their users post is known as:",
+    "options": {
+      "a": "Absolute Privilege",
+      "b": "Fair Use",
+      "c": "Safe Harbor",
+      "d": "Due Diligence"
+    },
+    "answer": "c"
+  },
+  {
+    "id": 32,
+    "category": "Cyber Ethics",
+    "question": "'Ethical Hacking' refers to:",
+    "options": {
+      "a": "Any form of hacking that is not detected.",
+      "b": "Hacking for a cause the hacker believes is just.",
+      "c": "Authorized and legal attempts to find vulnerabilities in a computer system.",
+      "d": "Hacking into a system but not stealing any data."
+    },
+    "answer": "c"
+  },
+  {
+    "id": 33,
+    "category": "Cyber Ethics",
+    "question": "The principle that Internet service providers should enable access to all content and applications regardless of the source, and without favoring or blocking particular products or websites, is known as:",
+    "options": {
+      "a": "Net Neutrality",
+      "b": "Open Internet",
+      "c": "Digital Divide",
+      "d": "Internet Freedom"
+    },
+    "answer": "a"
+  },
+  {
+    "id": 34,
+    "category": "Cyber Ethics",
+    "question": "What is the most ethical first step when you discover a major security vulnerability in a company's software?",
+    "options": {
+      "a": "Post it on social media to warn the public immediately.",
+      "b": "Sell the information to the company's competitors.",
+      "c": "Report it privately to the company so they can fix it (Responsible Disclosure).",
+      "d": "Exploit the vulnerability for personal gain."
+    },
+    "answer": "c"
+  },
+  {
+    "id": 35,
+    "category": "Cyber Ethics",
+    "question": "Using your employer's computer for significant personal use is often considered:",
+    "options": {
+      "a": "A smart way to save money.",
+      "b": "An ethical breach of company policy.",
+      "c": "A form of multitasking.",
+      "d": "A prerequisite for the job."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 36,
+    "category": "Cyber Ethics",
+    "question": "The ethical concept of 'Digital Citizenship' involves:",
+    "options": {
+      "a": "Having a passport that is stored online.",
+      "b": "Using technology responsibly and appropriately.",
+      "c": "Voting in elections online.",
+      "d": "Owning the latest technology."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 37,
+    "category": "Cyber Ethics",
+    "question": "Is it ethical to use someone else's unsecured Wi-Fi network without their permission?",
+    "options": {
+      "a": "Yes, because if it's not secured, it's public.",
+      "b": "No, it is unethical and often illegal (unauthorized access).",
+      "c": "Only if you don't download large files.",
+      "d": "Yes, it's a way to promote internet sharing."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 38,
+    "category": "Cyber Ethics",
+    "question": "The gap between those who have access to modern information and communication technology and those who do not is known as the:",
+    "options": {
+      "a": "Technology Gap",
+      "b": "Digital Divide",
+      "c": "Information Barrier",
+      "d": "Knowledge Deficit"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 39,
+    "category": "Cyber Ethics",
+    "question": "Anonymity on the internet is ethically complex because:",
+    "options": {
+      "a": "It is always illegal.",
+      "b": "It can protect whistleblowers and activists but can also enable harassment and crime.",
+      "c": "It makes the internet slower.",
+      "d": "It is only available to government agents."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 40,
+    "category": "Cyber Ethics",
+    "question": "The primary ethical duty of a cybersecurity professional is to:",
+    "options": {
+      "a": "Make systems as complex as possible.",
+      "b": "Protect the confidentiality, integrity, and availability of information systems.",
+      "c": "Share all security vulnerabilities with the public.",
+      "d": "Ensure the company makes a maximum profit from its security products."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 41,
+    "category": "Miscellaneous Concepts",
+    "question": "What is a 'cookie' in the context of the internet?",
+    "options": {
+      "a": "A type of computer virus.",
+      "b": "A small file stored on a user's computer by a web browser to remember information.",
+      "c": "A pop-up advertisement.",
+      "d": "A hardware component for networking."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 42,
+    "category": "Miscellaneous Concepts",
+    "question": "The 'Internet of Things' (IoT) raises legal and ethical concerns primarily related to:",
+    "options": {
+      "a": "Network speed.",
+      "b": "Data privacy and security of connected devices.",
+      "c": "The cost of internet plans.",
+      "d": "The physical size of devices."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 43,
+    "category": "Miscellaneous Concepts",
+    "question": "What is 'Netiquette'?",
+    "options": {
+      "a": "A set of rules for professional networking.",
+      "b": "The etiquette or acceptable code of conduct for communicating online.",
+      "c": "A brand of networking hardware.",
+      "d": "A law governing internet use."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 44,
+    "category": "Miscellaneous Concepts",
+    "question": "What does the term 'Open Source' refer to?",
+    "options": {
+      "a": "Software that is free to use but the code is hidden.",
+      "b": "Software whose source code is made available for use or modification as users see fit.",
+      "c": "A security vulnerability that is known to the public.",
+      "d": "The main power source of a computer."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 45,
+    "category": "Miscellaneous Concepts",
+    "question": "Which of the following is an example of two-factor authentication (2FA)?",
+    "options": {
+      "a": "Using a very long password.",
+      "b": "Using a password and a fingerprint to log in.",
+      "c": "Using the same password for two different websites.",
+      "d": "Changing your password every month."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 46,
+    "category": "Miscellaneous Concepts",
+    "question": "A 'Terms of Service' (ToS) agreement is a:",
+    "options": {
+      "a": "Guideline that can be ignored.",
+      "b": "Legal agreement between a service provider and a person who wants to use that service.",
+      "c": "A summary of the services offered.",
+      "d": "A list of customer service phone numbers."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 47,
+    "category": "Miscellaneous Concepts",
+    "question": "From an ethical standpoint, what is the main problem with 'astroturfing'?",
+    "options": {
+      "a": "It uses too much internet bandwidth.",
+      "b": "It is a deceptive practice that creates a false impression of widespread grassroots support.",
+      "c": "It is a form of hacking.",
+      "d": "It is very expensive."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 48,
+    "category": "Miscellaneous Concepts",
+    "question": "What is 'Cloud Computing'?",
+    "options": {
+      "a": "Storing data on your personal computer.",
+      "b": "The delivery of computing services—including servers, storage, and software—over the Internet.",
+      "c": "A type of weather forecasting software.",
+      "d": "A secure way to browse the web anonymously."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 49,
+    "category": "Miscellaneous Concepts",
+    "question": "An 'Acceptable Use Policy' (AUP) in a workplace or school typically outlines:",
+    "options": {
+      "a": "The salary and benefits of employees.",
+      "b": "The rules and constraints that users must agree to for access to a corporate network or the Internet.",
+      "c": "The holiday schedule for the year.",
+      "d": "The cafeteria menu."
+    },
+    "answer": "b"
+  },
+  {
+    "id": 50,
+    "category": "Miscellaneous Concepts",
+    "question": "What is the primary legal risk associated with using unlicensed software in a business?",
+    "options": {
+      "a": "It may slow down the computers.",
+      "b": "Copyright infringement, which can lead to heavy fines and legal action.",
+      "c": "It is not compatible with most hardware.",
+      "d": "It does not receive customer support."
+    },
+    "answer": "b"
+  }
+]
