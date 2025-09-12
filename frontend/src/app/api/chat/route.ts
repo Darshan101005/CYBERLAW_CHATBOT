@@ -4,9 +4,57 @@ export async function POST(request: NextRequest) {
   try {
     const { message } = await request.json()
 
-    const mockResponse = generateMockResponse(message)
+    if (!message) {
+      return NextResponse.json(
+        { error: 'Message is required' },
+        { status: 400 }
+      )
+    }
+
+    // Call Python backend API
+    const pythonBackendUrl = process.env.PYTHON_BACKEND_URL || 'http://localhost:5000'
     
-    return NextResponse.json({ reply: mockResponse })
+    try {
+      const response = await fetch(`${pythonBackendUrl}/api/chat`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message }),
+      })
+
+      if (!response.ok) {
+        throw new Error(`Backend responded with status: ${response.status}`)
+      }
+
+      const data = await response.json()
+      
+      if (!data.success) {
+        throw new Error(data.error || 'Backend processing failed')
+      }
+
+      // Format the response text to handle ** formatting
+      const formattedResponse = formatGeminiResponse(data.response)
+      
+      return NextResponse.json({ 
+        reply: formattedResponse,
+        detected_language: data.detected_language,
+        intent: data.intent 
+      })
+
+    } catch (backendError) {
+      console.error('Backend connection error:', backendError)
+      
+      // Fall back to mock response if backend is unavailable
+      const mockResponse = generateMockResponse(message)
+      
+      return NextResponse.json({ 
+        reply: mockResponse + '\n\n*Note: Using offline mode. Backend service unavailable.*',
+        detected_language: 'English',
+        intent: 'general_query'
+      })
+    }
+    
   } catch (error) {
     console.error('Chat API error:', error)
     return NextResponse.json(
@@ -14,6 +62,24 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     )
   }
+}
+
+function formatGeminiResponse(text: string): string {
+  if (!text) return ''
+  
+  // Convert ** ** to markdown bold
+  let formatted = text.replace(/\*\*([^*]+)\*\*/g, '**$1**')
+  
+  // Convert bullet points to proper format
+  formatted = formatted.replace(/^• /gm, '• ')
+  
+  // Ensure proper line breaks for sections
+  formatted = formatted.replace(/\n\*\*([^*]+)\*\*:/g, '\n\n**$1:**')
+  
+  // Clean up multiple newlines
+  formatted = formatted.replace(/\n{3,}/g, '\n\n')
+  
+  return formatted.trim()
 }
 
 function generateMockResponse(message: string): string {

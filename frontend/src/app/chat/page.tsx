@@ -3,8 +3,9 @@
 import { useState, useRef, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
-import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2 } from 'lucide-react'
+import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2, Edit3, Check, X } from 'lucide-react'
 import NewsNotification from '@/components/NewsNotification'
+import ChatMessage from '@/components/ChatMessage'
 
 interface Message {
   id: string
@@ -27,6 +28,8 @@ export default function Chat() {
   const [currentSession, setCurrentSession] = useState<string | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [user, setUser] = useState<any>(null)
+  const [editingSession, setEditingSession] = useState<string | null>(null)
+  const [editingTitle, setEditingTitle] = useState('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
 
@@ -93,7 +96,9 @@ export default function Chat() {
       setSessions([data, ...sessions])
       setCurrentSession(data.id)
       setMessages([])
+      return data.id
     }
+    return null
   }
 
   const deleteSession = async (sessionId: string) => {
@@ -117,13 +122,49 @@ export default function Chat() {
     }
   }
 
+  const updateSessionTitle = async (sessionId: string, newTitle: string) => {
+    try {
+      const { error } = await supabase
+        .from('chat_sessions')
+        .update({ title: newTitle.trim() })
+        .eq('id', sessionId)
+
+      if (error) throw error
+
+      setSessions(sessions.map(s => 
+        s.id === sessionId ? { ...s, title: newTitle.trim() } : s
+      ))
+      setEditingSession(null)
+      setEditingTitle('')
+    } catch (error) {
+      console.error('Error updating session title:', error)
+    }
+  }
+
+  const startEditing = (sessionId: string, currentTitle: string) => {
+    setEditingSession(sessionId)
+    setEditingTitle(currentTitle)
+  }
+
+  const cancelEditing = () => {
+    setEditingSession(null)
+    setEditingTitle('')
+  }
+
   const handleSendMessage = async () => {
-    if (!inputValue.trim() || !currentSession) return
+    if (!inputValue.trim()) return
+
+    // Create a session if none exists
+    let sessionId = currentSession
+    if (!sessionId) {
+      sessionId = await createNewSession()
+      if (!sessionId) return // If session creation failed, abort
+    }
 
     const userMessage = {
       content: inputValue,
       is_user: true,
-      session_id: currentSession
+      session_id: sessionId
     }
 
     setIsLoading(true)
@@ -239,33 +280,87 @@ export default function Chat() {
               {sessions.map((session) => (
                 <div
                   key={session.id}
-                  className={`group flex items-center justify-between p-4 rounded-xl cursor-pointer transition-all duration-200 ${
+                  className={`group flex items-center justify-between p-4 rounded-xl transition-all duration-200 ${
                     currentSession === session.id
                       ? 'bg-gradient-to-r from-white to-primary-50 backdrop-blur-sm border border-primary-200 shadow-sm'
                       : 'hover:bg-primary-50/50 hover:backdrop-blur-sm'
-                  }`}
+                  } ${editingSession === session.id ? 'cursor-default' : 'cursor-pointer'}`}
                   onClick={() => {
-                    setCurrentSession(session.id)
-                    loadMessages(session.id)
+                    if (editingSession !== session.id) {
+                      setCurrentSession(session.id)
+                      loadMessages(session.id)
+                    }
                   }}
                 >
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-semibold text-primary-800 truncate mb-1">
-                      {session.title}
-                    </h3>
+                    {editingSession === session.id ? (
+                      <div className="flex items-center space-x-2">
+                        <input
+                          type="text"
+                          value={editingTitle}
+                          onChange={(e) => setEditingTitle(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                              updateSessionTitle(session.id, editingTitle)
+                            } else if (e.key === 'Escape') {
+                              cancelEditing()
+                            }
+                          }}
+                          className="flex-1 text-sm font-semibold text-primary-800 bg-transparent border-b border-primary-300 focus:border-primary-500 outline-none"
+                          autoFocus
+                        />
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            updateSessionTitle(session.id, editingTitle)
+                          }}
+                          className="p-1 text-green-600 hover:text-green-800 hover:bg-green-100 rounded transition-all"
+                        >
+                          <Check className="w-3 h-3" />
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            cancelEditing()
+                          }}
+                          className="p-1 text-red-600 hover:text-red-800 hover:bg-red-100 rounded transition-all"
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      </div>
+                    ) : (
+                      <h3 className="text-sm font-semibold text-primary-800 truncate mb-1">
+                        {session.title}
+                      </h3>
+                    )}
                     <p className="text-xs text-primary-600">
                       {new Date(session.created_at).toLocaleDateString()}
                     </p>
                   </div>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      deleteSession(session.id)
-                    }}
-                    className="opacity-0 group-hover:opacity-100 p-2 text-primary-600 hover:text-primary-800 hover:bg-primary-100 rounded-lg transition-all"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
+                  {editingSession !== session.id && (
+                    <div className="flex space-x-1">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          startEditing(session.id, session.title)
+                        }}
+                        className="opacity-0 group-hover:opacity-100 p-2 text-primary-600 hover:text-primary-800 hover:bg-primary-100 rounded-lg transition-all"
+                        title="Edit thread name"
+                      >
+                        <Edit3 className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          deleteSession(session.id)
+                        }}
+                        className="opacity-0 group-hover:opacity-100 p-2 text-primary-600 hover:text-primary-800 hover:bg-primary-100 rounded-lg transition-all"
+                        title="Delete thread"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -356,23 +451,30 @@ export default function Chat() {
                 key={message.id}
                 className={`flex ${message.is_user ? 'justify-end' : 'justify-start'}`}
               >
-                <div
-                  className={`max-w-3xl px-6 py-4 rounded-2xl shadow-sm ${
-                    message.is_user
-                      ? 'bg-gradient-primary text-white shadow-lg border border-primary-400'
-                      : 'bg-gradient-to-r from-white to-primary-50 backdrop-blur-sm border border-primary-200 text-primary-800'
-                  }`}
-                >
-                  <p className={`leading-relaxed font-medium ${message.is_user ? 'text-white' : 'text-primary-800'}`}>
-                    {message.content}
-                  </p>
-                  <span
-                    className={`text-xs mt-2 block ${
-                      message.is_user ? 'text-primary-100' : 'text-primary-600'
+                <div className="flex flex-col max-w-3xl">
+                  {!message.is_user && (
+                    <div className="mb-1 ml-2">
+                      <span className="text-xs font-semibold text-orange-600 bg-orange-50 px-2 py-1 rounded-full">
+                        🤖 Cyberlex
+                      </span>
+                    </div>
+                  )}
+                  <div
+                    className={`px-6 py-4 rounded-2xl shadow-sm ${
+                      message.is_user
+                        ? 'bg-gradient-primary text-white shadow-lg border border-primary-400'
+                        : 'bg-gradient-to-r from-white to-primary-50 backdrop-blur-sm border border-primary-200 text-primary-800'
                     }`}
                   >
-                    {new Date(message.created_at).toLocaleTimeString()}
-                  </span>
+                    <ChatMessage content={message.content} isUser={message.is_user} />
+                    <span
+                      className={`text-xs mt-2 block ${
+                        message.is_user ? 'text-primary-100' : 'text-primary-600'
+                      }`}
+                    >
+                      {new Date(message.created_at).toLocaleTimeString()}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))
@@ -397,14 +499,19 @@ export default function Chat() {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault()
+                  handleSendMessage()
+                }
+              }}
               placeholder="Ask about cybercrime laws, IT Act, legal procedures..."
               className="flex-1 px-6 py-4 bg-primary-50/80 backdrop-blur-sm border border-primary-200 rounded-xl focus:ring-2 focus:ring-primary-400 focus:border-primary-400 outline-none transition-all text-primary-900 placeholder-primary-700"
               disabled={isLoading}
             />
             <button
               onClick={handleSendMessage}
-              disabled={isLoading || !inputValue.trim() || !currentSession}
+              disabled={isLoading || !inputValue.trim()}
               className="px-8 py-4 bg-gradient-primary text-primary-50 rounded-xl hover:shadow-lg hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-200 flex items-center space-x-2 font-medium"
             >
               <Send className="w-5 h-5" />
