@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Eye, EyeOff, Mail, Lock, LogIn } from 'lucide-react'
+import { Eye, EyeOff, Mail, Lock, Scale } from 'lucide-react'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -67,10 +67,10 @@ export default function Login() {
         <div className="bg-surface-200/90 backdrop-blur-xl rounded-3xl shadow-large p-10 border border-surface-300">
           <div className="text-center mb-10">
             <div className="mx-auto w-20 h-20 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 shadow-glow">
-              <LogIn className="w-10 h-10 text-primary-50" />
+              <Scale className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-3xl font-bold text-primary-800 mb-3">Welcome Back</h1>
-            <p className="text-primary-600 text-lg font-medium">Sign in to CyberLaw AI Assistant</p>
+            <p className="text-primary-600 text-lg font-medium">Sign in to Cyberlex Assistant</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-8">

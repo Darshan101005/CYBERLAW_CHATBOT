@@ -73,7 +73,7 @@ export default function SignUp() {
               <User className="w-10 h-10 text-primary-50" />
             </div>
             <h1 className="text-3xl font-bold text-primary-800 mb-3">Create Account</h1>
-            <p className="text-primary-600 text-lg font-medium">Join CyberLaw AI Assistant</p>
+            <p className="text-primary-600 text-lg font-medium">Join Cyberlex Assistant</p>
           </div>
 
           <form onSubmit={handleSignUp} className="space-y-6">

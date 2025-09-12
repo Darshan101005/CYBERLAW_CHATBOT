@@ -204,29 +204,29 @@ export default function Chat() {
 
   return (
     <div className="h-screen bg-gradient-hero flex">
-      <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 z-50 w-80 bg-surface-200/90 backdrop-blur-xl border-r border-surface-400 shadow-2xl transform transition-transform duration-200 ease-in-out md:relative md:translate-x-0`}>
+      <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 z-50 w-80 bg-white/95 backdrop-blur-xl border-r border-primary-200 shadow-2xl transform transition-transform duration-200 ease-in-out md:relative md:translate-x-0`}>
         <div className="flex flex-col h-full">
-          <div className="p-6 border-b border-surface-400">
+          <div className="p-6 border-b border-primary-200">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
-                  <MessageCircle className="w-6 h-6 text-primary-50" />
+                  <MessageCircle className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <span className="font-bold text-primary-800 text-lg">CyberLaw AI</span>
+                  <span className="font-bold text-primary-700 text-lg">Cyberlex</span>
                   <p className="text-primary-600 text-sm">Legal Assistant</p>
                 </div>
               </div>
               <button
                 onClick={() => setSidebarOpen(false)}
-                className="md:hidden p-2 text-primary-600 hover:text-primary-800 hover:bg-surface-300 rounded-lg transition-all"
+                className="md:hidden p-2 text-primary-600 hover:text-primary-800 hover:bg-primary-50 rounded-lg transition-all"
               >
                 ×
               </button>
             </div>
             <button
               onClick={createNewSession}
-              className="w-full flex items-center justify-center space-x-2 bg-gradient-primary text-primary-50 px-4 py-3 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium"
+              className="w-full flex items-center justify-center space-x-2 bg-gradient-primary text-white px-4 py-3 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium"
             >
               <Plus className="w-4 h-4" />
               <span>New Chat</span>
@@ -240,8 +240,8 @@ export default function Chat() {
                   key={session.id}
                   className={`group flex items-center justify-between p-4 rounded-xl cursor-pointer transition-all duration-200 ${
                     currentSession === session.id
-                      ? 'bg-surface-300/80 backdrop-blur-sm border border-surface-500 shadow-sm'
-                      : 'hover:bg-surface-300/50 hover:backdrop-blur-sm'
+                      ? 'bg-gradient-to-r from-white to-primary-50 backdrop-blur-sm border border-primary-200 shadow-sm'
+                      : 'hover:bg-primary-50/50 hover:backdrop-blur-sm'
                   }`}
                   onClick={() => {
                     setCurrentSession(session.id)
@@ -261,7 +261,7 @@ export default function Chat() {
                       e.stopPropagation()
                       deleteSession(session.id)
                     }}
-                    className="opacity-0 group-hover:opacity-100 p-2 text-primary-600 hover:text-primary-800 hover:bg-surface-400 rounded-lg transition-all"
+                    className="opacity-0 group-hover:opacity-100 p-2 text-primary-600 hover:text-primary-800 hover:bg-primary-100 rounded-lg transition-all"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -270,10 +270,10 @@ export default function Chat() {
             </div>
           </div>
 
-          <div className="p-4 border-t border-surface-400">
-            <div className="flex items-center space-x-3 p-3 bg-surface-300/60 backdrop-blur-sm rounded-xl border border-surface-400">
+          <div className="p-4 border-t border-primary-200">
+            <div className="flex items-center space-x-3 p-3 bg-gradient-to-r from-white to-primary-50 backdrop-blur-sm rounded-xl border border-primary-200">
               <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center shadow-md">
-                <User className="w-5 h-5 text-primary-50" />
+                <User className="w-5 h-5 text-white" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-semibold text-primary-800 truncate">
@@ -283,7 +283,7 @@ export default function Chat() {
               </div>
               <button
                 onClick={handleLogout}
-                className="p-2 text-primary-600 hover:text-primary-800 hover:bg-surface-400 rounded-lg transition-all"
+                className="p-2 text-primary-600 hover:text-primary-800 hover:bg-primary-100 rounded-lg transition-all"
               >
                 <LogOut className="w-4 h-4" />
               </button>
@@ -293,21 +293,21 @@ export default function Chat() {
       </div>
 
       <div className="flex-1 flex flex-col">
-        <header className="bg-surface-200/90 backdrop-blur-xl border-b border-surface-400 p-6 shadow-sm">
+        <header className="bg-white/95 backdrop-blur-xl border-b border-primary-200 p-6 shadow-sm">
           <div className="flex items-center justify-between">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="md:hidden p-2 text-primary-600 hover:text-primary-800 hover:bg-surface-300 rounded-lg transition-all"
+              className="md:hidden p-2 text-primary-600 hover:text-primary-800 hover:bg-primary-50 rounded-lg transition-all"
             >
               <Menu className="w-6 h-6" />
             </button>
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-md">
-                <Sparkles className="w-5 h-5 text-primary-50" />
+                <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div>
                 <h1 className="text-xl font-bold text-primary-800">
-                  CyberLaw Assistant
+                  Cyberlex Assistant
                 </h1>
                 <p className="text-sm text-primary-600">AI-powered legal guidance</p>
               </div>
@@ -320,28 +320,28 @@ export default function Chat() {
           {messages.length === 0 ? (
             <div className="text-center py-20">
               <div className="w-20 h-20 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl">
-                <MessageCircle className="w-10 h-10 text-primary-50" />
+                <MessageCircle className="w-10 h-10 text-white" />
               </div>
               <h2 className="text-2xl font-bold text-primary-800 mb-3">
-                Welcome to CyberLaw AI
+                Welcome to Cyberlex
               </h2>
               <p className="text-primary-600 max-w-lg mx-auto leading-relaxed font-medium">
                 Ask me anything about cybercrime laws, IT Act 2000, legal procedures, or get guidance on cybersecurity compliance. I'm here to help with your legal questions.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 max-w-2xl mx-auto">
-                <div className="p-4 bg-surface-300/70 backdrop-blur-sm rounded-xl border border-surface-400">
+                <div className="p-4 bg-gradient-to-br from-white to-primary-50 backdrop-blur-sm rounded-xl border border-primary-200">
                   <h3 className="font-semibold text-primary-800 mb-2">Cybercrime Laws</h3>
                   <p className="text-sm text-primary-600 font-medium">Learn about cybercrime provisions and penalties</p>
                 </div>
-                <div className="p-4 bg-surface-400/70 backdrop-blur-sm rounded-xl border border-surface-500">
+                <div className="p-4 bg-gradient-to-br from-white to-primary-100 backdrop-blur-sm rounded-xl border border-primary-200">
                   <h3 className="font-semibold text-primary-800 mb-2">IT Act 2000</h3>
                   <p className="text-sm text-primary-600 font-medium">Understanding digital rights and regulations</p>
                 </div>
-                <div className="p-4 bg-primary-100/70 backdrop-blur-sm rounded-xl border border-primary-300">
+                <div className="p-4 bg-gradient-to-br from-primary-50 to-primary-100 backdrop-blur-sm rounded-xl border border-primary-200">
                   <h3 className="font-semibold text-primary-800 mb-2">Legal Procedures</h3>
                   <p className="text-sm text-primary-600 font-medium">Step-by-step guidance for legal processes</p>
                 </div>
-                <div className="p-4 bg-primary-200/70 backdrop-blur-sm rounded-xl border border-primary-400">
+                <div className="p-4 bg-gradient-to-br from-primary-100 to-primary-200 backdrop-blur-sm rounded-xl border border-primary-300">
                   <h3 className="font-semibold text-primary-800 mb-2">Compliance</h3>
                   <p className="text-sm text-primary-600 font-medium">Cybersecurity and data protection guidance</p>
                 </div>
@@ -356,16 +356,16 @@ export default function Chat() {
                 <div
                   className={`max-w-3xl px-6 py-4 rounded-2xl shadow-sm ${
                     message.is_user
-                      ? 'bg-gradient-primary text-primary-50 shadow-lg border border-primary-400'
-                      : 'bg-surface-300/80 backdrop-blur-sm border border-surface-400 text-primary-800'
+                      ? 'bg-gradient-primary text-white shadow-lg border border-primary-400'
+                      : 'bg-gradient-to-r from-white to-primary-50 backdrop-blur-sm border border-primary-200 text-primary-800'
                   }`}
                 >
-                  <p className={`leading-relaxed font-medium ${message.is_user ? 'text-primary-50' : 'text-primary-800'}`}>
+                  <p className={`leading-relaxed font-medium ${message.is_user ? 'text-white' : 'text-primary-800'}`}>
                     {message.content}
                   </p>
                   <span
                     className={`text-xs mt-2 block ${
-                      message.is_user ? 'text-primary-200' : 'text-primary-600'
+                      message.is_user ? 'text-primary-100' : 'text-primary-600'
                     }`}
                   >
                     {new Date(message.created_at).toLocaleTimeString()}
@@ -376,7 +376,7 @@ export default function Chat() {
           )}
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-surface-300/80 backdrop-blur-sm border border-surface-400 px-6 py-4 rounded-2xl shadow-sm">
+              <div className="bg-gradient-to-r from-white to-primary-50 backdrop-blur-sm border border-primary-200 px-6 py-4 rounded-2xl shadow-sm">
                 <div className="flex space-x-1">
                   <div className="w-2 h-2 bg-primary-600 rounded-full animate-bounce"></div>
                   <div className="w-2 h-2 bg-primary-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -388,7 +388,7 @@ export default function Chat() {
           <div ref={messagesEndRef} />
         </div>
 
-        <div className="p-6 bg-surface-200/90 backdrop-blur-xl border-t border-surface-400">
+        <div className="p-6 bg-white/95 backdrop-blur-xl border-t border-primary-100">
           <div className="flex space-x-4">
             <input
               type="text"

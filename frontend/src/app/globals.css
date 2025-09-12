@@ -2,69 +2,87 @@
 
 /* Tailwind v4: Define your design tokens with @theme so utilities like bg-primary-500 work */
 @theme {
-  /* Primary palette */
-  --color-primary-50:  #D8F3DC;
-  --color-primary-100: #B7E4C7;
-  --color-primary-200: #95D5B2;
-  --color-primary-300: #74C69D;
-  --color-primary-400: #3DAC78;
-  --color-primary-500: #2D8F61;
-  --color-primary-600: #236748;
-  --color-primary-700: #1A4F36;
-  --color-primary-800: #123629;
-  --color-primary-900: #052E16;
+  /* Orange/coral primary palette */
+  --color-primary-50:  #FFF7ED;
+  --color-primary-100: #FFEDD5;
+  --color-primary-200: #FED7AA;
+  --color-primary-300: #FDBA74;
+  --color-primary-400: #FB923C;
+  --color-primary-500: #F97316;
+  --color-primary-600: #EA580C;
+  --color-primary-700: #C2410C;
+  --color-primary-800: #9A3412;
+  --color-primary-900: #7C2D12;
 
-  /* Surface palette */
-  --color-surface-50:  #D8F3DC;
-  --color-surface-100: #B7E4C7;
-  --color-surface-200: #95D5B2;
-  --color-surface-300: #74C69D;
-  --color-surface-400: #3DAC78;
-  --color-surface-500: #2D8F61;
-  --color-surface-600: #236748;
-  --color-surface-700: #1A4F36;
-  --color-surface-800: #123629;
-  --color-surface-900: #052E16;
+  /* Secondary green palette */
+  --color-secondary-50:  #F0FDF4;
+  --color-secondary-100: #DCFCE7;
+  --color-secondary-200: #BBF7D0;
+  --color-secondary-300: #86EFAC;
+  --color-secondary-400: #4ADE80;
+  --color-secondary-500: #22C55E;
+  --color-secondary-600: #16A34A;
+  --color-secondary-700: #15803D;
+  --color-secondary-800: #166534;
+  --color-secondary-900: #14532D;
+
+  /* Surface/neutral palette */
+  --color-surface-50:  #FAFAF9;
+  --color-surface-100: #F5F5F4;
+  --color-surface-200: #E7E5E4;
+  --color-surface-300: #D6D3D1;
+  --color-surface-400: #A8A29E;
+  --color-surface-500: #78716C;
+  --color-surface-600: #57534E;
+  --color-surface-700: #44403C;
+  --color-surface-800: #292524;
+  --color-surface-900: #1C1917;
 }
 
 /* Custom utilities as global classes for compatibility */
 /* Custom utilities as global classes for compatibility */
+/* Orange/coral gradients and utilities */
 .bg-gradient-hero {
-  background-image: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-200) 50%, var(--color-primary-300) 100%);
+  background-image: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-200) 50%, var(--color-primary-400) 100%);
 }
 
 .bg-gradient-primary {
-  background-image: linear-gradient(135deg, var(--color-primary-300) 0%, var(--color-primary-400) 100%);
+  background-image: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-primary-500) 100%);
 }
 
 .bg-gradient-mesh {
   background-image:
     radial-gradient(circle at 20% 50%, var(--color-primary-50) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, var(--color-primary-200) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, var(--color-primary-300) 0%, transparent 50%);
+    radial-gradient(circle at 40% 80%, var(--color-primary-400) 0%, transparent 50%);
+}
+
+.bg-gradient-card {
+  background-image: linear-gradient(135deg, #FFFFFF 0%, var(--color-primary-50) 100%);
 }
 
 /* Shadows */
+/* Orange-themed shadows */
 .shadow-glow {
-  box-shadow: 0 0 20px rgba(116, 198, 157, 0.4);
+  box-shadow: 0 0 20px rgba(251, 146, 60, 0.4);
 }
 
 .shadow-medium {
-  box-shadow: 0 10px 15px -3px rgba(116, 198, 157, 0.10);
+  box-shadow: 0 10px 15px -3px rgba(251, 146, 60, 0.10);
 }
 
 .shadow-large {
-  box-shadow: 0 25px 50px -12px rgba(116, 198, 157, 0.25);
+  box-shadow: 0 25px 50px -12px rgba(251, 146, 60, 0.25);
 }
 
 .shadow-soft {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Animations */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(116, 198, 157, 0.4); }
-  50% { box-shadow: 0 0 40px rgba(116, 198, 157, 0.6); }
+  0%, 100% { box-shadow: 0 0 20px rgba(251, 146, 60, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(251, 146, 60, 0.6); }
 }
 
 .animate-pulse-glow {

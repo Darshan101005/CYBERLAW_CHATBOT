@@ -137,7 +137,7 @@ Penalties have been significantly increased with amendments.`
 **Investigation**: Cyber crime cells, special investigation teams with technical expertise.`
   }
   
-  return `I understand you're asking about cybercrime law. As a CyberLaw AI assistant, I can help with:
+  return `I understand you're asking about cybercrime law. As Cyberlex, I can help with:
 
 • **IT Act 2000** provisions and amendments
 • **Cybercrime reporting** procedures  

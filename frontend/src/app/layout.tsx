@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CyberLaw AI - Legal Assistant",
-  description: "AI-powered legal guidance for cybercrime laws, IT Act 2000, and cybersecurity compliance",
+  title: "Cyberlex - AI Legal Assistant",
+  description: "Cyberlex: AI-powered legal guidance for cybercrime laws, IT Act 2000, and cybersecurity compliance",
 };
 
 export default function RootLayout({
