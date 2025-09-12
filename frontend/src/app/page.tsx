@@ -58,7 +58,7 @@ export default function LandingPage() {
     {
       name: "Advocate Sarah Patel",
       role: "Cyber Crime Lawyer",
-      content: "CyberLaw AI has revolutionized how I research cybercrime cases. The instant access to relevant laws and precedents saves hours of research time.",
+      content: "Cyberlex AI has revolutionized how I research cybercrime cases. The instant access to relevant laws and precedents saves hours of research time.",
       rating: 5
     },
     {
@@ -87,7 +87,7 @@ export default function LandingPage() {
                 <Scale className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="font-bold text-xl text-surface-900">CyberLaw AI</span>
+                <span className="font-bold text-xl text-surface-900">Cyberlex AI</span>
                 <p className="text-sm text-surface-600 font-medium">Legal Assistant</p>
               </div>
             </div>
@@ -183,7 +183,7 @@ export default function LandingPage() {
             </h1>
             
             <p className="text-xl md:text-2xl text-surface-700 mb-10 max-w-4xl mx-auto leading-relaxed">
-              CyberLaw AI uses advanced artificial intelligence to help you navigate cybercrime laws, 
+              Cyberlex AI uses advanced artificial intelligence to help you navigate cybercrime laws, 
               IT Act provisions, and data protection regulations with confidence and clarity.
             </p>
             
@@ -259,7 +259,7 @@ export default function LandingPage() {
             <div>
               <div className="flex items-center space-x-2 mb-6">
                 <Gavel className="w-6 h-6 text-primary-600" />
-                <span className="text-primary-600 font-semibold text-lg">About CyberLaw AI</span>
+                <span className="text-primary-600 font-semibold text-lg">About Cyberlex AI</span>
               </div>
               
               <h2 className="text-3xl md:text-5xl font-bold text-surface-900 mb-6">
@@ -267,7 +267,7 @@ export default function LandingPage() {
               </h2>
               
               <p className="text-lg text-surface-600 mb-8 leading-relaxed">
-                CyberLaw AI bridges the gap between complex legal frameworks and practical understanding. 
+                Cyberlex AI bridges the gap between complex legal frameworks and practical understanding. 
                 Our platform combines artificial intelligence with comprehensive legal databases to provide 
                 accurate, timely, and actionable legal guidance.
               </p>
@@ -367,7 +367,7 @@ export default function LandingPage() {
             </h2>
             <p className="text-xl text-surface-600 max-w-3xl mx-auto">
               Join thousands of lawyers, consultants, and compliance officers who rely on 
-              CyberLaw AI for accurate legal guidance.
+              Cyberlex AI for accurate legal guidance.
             </p>
           </div>
           
@@ -410,7 +410,7 @@ export default function LandingPage() {
               Ready to Navigate CyberLaw with Confidence?
             </h2>
             <p className="text-xl text-primary-100 mb-10 leading-relaxed">
-              Join thousands of legal professionals who trust CyberLaw AI for accurate, 
+              Join thousands of legal professionals who trust Cyberlex AI for accurate, 
               timely legal guidance. Start your free trial today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -444,7 +444,7 @@ export default function LandingPage() {
                   <Scale className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <span className="font-bold text-2xl text-white">CyberLaw AI</span>
+                  <span className="font-bold text-2xl text-white">Cyberlex AI</span>
                   <p className="text-surface-400 font-medium">Legal Assistant</p>
                 </div>
               </div>
@@ -481,7 +481,7 @@ export default function LandingPage() {
           
           <div className="border-t border-surface-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-surface-500 text-sm">
-              © 2025 CyberLaw AI. All rights reserved. Empowering legal clarity.
+              © 2025 Cyberlex AI. All rights reserved. Empowering legal clarity.
             </p>
             <div className="flex items-center space-x-6 mt-4 md:mt-0">
               <Link href="#" className="text-surface-500 hover:text-primary-400 transition-colors text-sm">
