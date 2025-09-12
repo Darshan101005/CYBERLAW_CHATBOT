@@ -38,8 +38,8 @@ def health_check():
 @app.route('/api/chat', methods=['POST'])
 def chat():
     """
-    Main chat endpoint for general queries
-    Request: {"message": "user query", "language": "English"}
+    Main chat endpoint for general queries with optional file upload
+    Request: {"message": "user query", "file": {"name": "doc.pdf", "data": "base64", "type": "application/pdf"}}
     Response: {"response": "bot reply", "detected_language": "English", "intent": "general_query"}
     """
     try:
@@ -48,10 +48,46 @@ def chat():
             return jsonify({"error": "Message is required"}), 400
         
         user_message = data['message']
+        file_data = data.get('file')
+        
         service = get_chatbot_service()
         
-        # Process query
-        response = service.process_query(user_message)
+        # Handle file processing if file is provided
+        file_path = None
+        if file_data:
+            try:
+                import base64
+                import tempfile
+                import os
+                
+                # Decode base64 file data
+                file_content = base64.b64decode(file_data['data'].split(',')[1])  # Remove data:mime;base64, prefix
+                
+                # Create temporary file
+                temp_dir = tempfile.gettempdir()
+                file_name = file_data['name']
+                file_path = os.path.join(temp_dir, f"upload_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{file_name}")
+                
+                # Save file temporarily
+                with open(file_path, 'wb') as f:
+                    f.write(file_content)
+                
+                # Process query with file
+                response = service.process_query(user_message, file_path)
+                
+                # Clean up temporary file
+                try:
+                    os.remove(file_path)
+                except:
+                    pass
+                    
+            except Exception as file_error:
+                print(f"File processing error: {file_error}")
+                # Fall back to regular text processing
+                response = service.process_query(user_message)
+        else:
+            # Process query without file
+            response = service.process_query(user_message)
         
         # Get last conversation turn for metadata
         last_turn = service.conversation_history[-1] if service.conversation_history else {}
@@ -59,7 +95,7 @@ def chat():
         return jsonify({
             "response": response,
             "detected_language": last_turn.get("detected_language", "English"),
-            "intent": "general_query",
+            "intent": "file_analysis" if file_data else "general_query",
             "timestamp": datetime.now().isoformat(),
             "success": True
         })

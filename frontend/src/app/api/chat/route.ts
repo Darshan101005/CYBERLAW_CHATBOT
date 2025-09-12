@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
   try {
-    const { message } = await request.json()
+    const body = await request.json()
+    const { message, file } = body
 
     if (!message) {
       return NextResponse.json(
@@ -15,12 +16,25 @@ export async function POST(request: NextRequest) {
     const pythonBackendUrl = process.env.PYTHON_BACKEND_URL || 'http://localhost:5000'
     
     try {
+      // Prepare request payload
+      const requestPayload: any = { message }
+      
+      // Add file data if present
+      if (file) {
+        requestPayload.file = {
+          name: file.name,
+          type: file.type,
+          data: file.data, // Base64 encoded file data
+          size: file.size
+        }
+      }
+
       const response = await fetch(`${pythonBackendUrl}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify(requestPayload),
       })
 
       if (!response.ok) {

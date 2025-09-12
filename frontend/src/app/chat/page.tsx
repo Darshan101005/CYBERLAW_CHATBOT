@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
-import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2, Edit3, Check, X } from 'lucide-react'
+import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2, Edit3, Check, X, Paperclip, Upload, FileText } from 'lucide-react'
 import NewsNotification from '@/components/NewsNotification'
 import ChatMessage from '@/components/ChatMessage'
 
@@ -30,6 +30,9 @@ export default function Chat() {
   const [user, setUser] = useState<any>(null)
   const [editingSession, setEditingSession] = useState<string | null>(null)
   const [editingTitle, setEditingTitle] = useState('')
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [showFileUpload, setShowFileUpload] = useState(false)
+  const [uploadedFileName, setUploadedFileName] = useState<string>('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
 
@@ -151,6 +154,39 @@ export default function Chat() {
     setEditingTitle('')
   }
 
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (file) {
+      // Check file type (allow common document formats)
+      const allowedTypes = [
+        'application/pdf',
+        'text/plain',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'image/jpeg',
+        'image/png',
+        'image/gif'
+      ]
+      
+      if (allowedTypes.includes(file.type)) {
+        setSelectedFile(file)
+        setUploadedFileName(file.name)
+        setShowFileUpload(false)
+      } else {
+        alert('Please select a valid file type (PDF, DOC, DOCX, TXT, JPG, PNG, GIF)')
+      }
+    }
+  }
+
+  const removeSelectedFile = () => {
+    setSelectedFile(null)
+    setUploadedFileName('')
+  }
+
+  const toggleFileUpload = () => {
+    setShowFileUpload(!showFileUpload)
+  }
+
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return
 
@@ -162,14 +198,20 @@ export default function Chat() {
     }
 
     const userMessage = {
-      content: inputValue,
+      content: selectedFile ? `${inputValue}\n\n📎 Attached file: ${uploadedFileName}` : inputValue,
       is_user: true,
       session_id: sessionId
     }
 
     setIsLoading(true)
     const currentInput = inputValue
+    const currentFile = selectedFile
     setInputValue('')
+    
+    // Clear file after sending
+    if (selectedFile) {
+      removeSelectedFile()
+    }
 
     try {
       const { data: userMsg, error: userError } = await supabase
@@ -182,10 +224,32 @@ export default function Chat() {
         setMessages(prev => [...prev, userMsg])
       }
 
+      // Prepare request body with file if present
+      let requestBody: any = { message: currentInput }
+      
+      if (currentFile) {
+        // Convert file to base64 for API transmission
+        const reader = new FileReader()
+        const fileData = await new Promise<string>((resolve) => {
+          reader.onload = () => resolve(reader.result as string)
+          reader.readAsDataURL(currentFile)
+        })
+        
+        requestBody = {
+          message: currentInput,
+          file: {
+            name: currentFile.name,
+            type: currentFile.type,
+            data: fileData,
+            size: currentFile.size
+          }
+        }
+      }
+
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: currentInput })
+        body: JSON.stringify(requestBody)
       })
 
       const { reply } = await response.json()
@@ -494,7 +558,66 @@ export default function Chat() {
         </div>
 
         <div className="p-6 bg-white/95 backdrop-blur-xl border-t border-primary-100">
-          <div className="flex space-x-4">
+          {/* File Upload Area */}
+          {selectedFile && (
+            <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <FileText className="w-4 h-4 text-blue-600" />
+                <span className="text-sm font-medium text-blue-800">{uploadedFileName}</span>
+                <span className="text-xs text-blue-600">({(selectedFile.size / 1024).toFixed(1)} KB)</span>
+              </div>
+              <button
+                onClick={removeSelectedFile}
+                className="text-blue-600 hover:text-blue-800 p-1"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          )}
+
+          {/* File Upload Modal */}
+          {showFileUpload && (
+            <div className="mb-4 p-4 bg-primary-50 border border-primary-200 rounded-xl">
+              <div className="text-center">
+                <Upload className="w-8 h-8 text-primary-600 mx-auto mb-2" />
+                <p className="text-sm font-medium text-primary-800 mb-3">Upload a document for analysis</p>
+                <input
+                  type="file"
+                  onChange={handleFileSelect}
+                  accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.gif"
+                  className="hidden"
+                  id="file-upload"
+                />
+                <label
+                  htmlFor="file-upload"
+                  className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 cursor-pointer transition-colors"
+                >
+                  <Upload className="w-4 h-4 mr-2" />
+                  Choose File
+                </label>
+                <p className="text-xs text-primary-600 mt-2">
+                  Supported: PDF, DOC, DOCX, TXT, JPG, PNG, GIF (Max 10MB)
+                </p>
+                <button
+                  onClick={() => setShowFileUpload(false)}
+                  className="mt-2 text-primary-600 hover:text-primary-800 text-sm"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
+
+          <div className="flex space-x-2">
+            {/* Multimedia Pin Button */}
+            <button
+              onClick={toggleFileUpload}
+              className="p-4 bg-primary-100 text-primary-600 rounded-xl hover:bg-primary-200 hover:scale-105 transition-all duration-200 flex items-center justify-center"
+              title="Attach file"
+            >
+              <Paperclip className="w-5 h-5" />
+            </button>
+
             <input
               type="text"
               value={inputValue}
@@ -505,7 +628,7 @@ export default function Chat() {
                   handleSendMessage()
                 }
               }}
-              placeholder="Ask about cybercrime laws, IT Act, legal procedures..."
+              placeholder={selectedFile ? "Ask questions about the uploaded file..." : "Ask about cybercrime laws, IT Act, legal procedures..."}
               className="flex-1 px-6 py-4 bg-primary-50/80 backdrop-blur-sm border border-primary-200 rounded-xl focus:ring-2 focus:ring-primary-400 focus:border-primary-400 outline-none transition-all text-primary-900 placeholder-primary-700"
               disabled={isLoading}
             />
