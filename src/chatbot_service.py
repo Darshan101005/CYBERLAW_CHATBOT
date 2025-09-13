@@ -290,9 +290,163 @@ RESPONSE:"""
         if len(self.conversation_history) > self.max_history_turns:
             self.conversation_history = self.conversation_history[-self.max_history_turns:]
     
+    def handle_greeting(self, user_input: str) -> str:
+        """Handle greetings and casual conversation"""
+        input_lower = user_input.lower().strip()
+        
+        # Check if this is a state/location response
+        indian_states = [
+            "andhra pradesh", "arunachal pradesh", "assam", "bihar", "chhattisgarh", "goa", 
+            "gujarat", "haryana", "himachal pradesh", "jharkhand", "karnataka", "kerala", 
+            "madhya pradesh", "maharashtra", "manipur", "meghalaya", "mizoram", "nagaland", 
+            "odisha", "punjab", "rajasthan", "sikkim", "tamil nadu", "telangana", "tripura", 
+            "uttar pradesh", "uttarakhand", "west bengal", "delhi", "puducherry", "jammu and kashmir",
+            "ladakh", "andaman and nicobar", "chandigarh", "dadra and nagar haveli", "daman and diu",
+            "lakshadweep"
+        ]
+        
+        # Check if user mentioned a state
+        for state in indian_states:
+            if state in input_lower:
+                return f"Great! I see you're from {state.title()}. I can provide cyber law guidance specific to your location. I can help you with:\n\n• Local cyber crime reporting procedures\n• State-specific nodal officers for cyber crimes\n• Regional cyber police stations\n• Local legal resources\n\nWhat specific cyber law issue would you like help with?"
+        
+        # Check conversation history for context
+        if len(self.conversation_history) > 0:
+            last_bot_response = self.conversation_history[-1].get('bot_reply', '').lower()
+            if 'which state' in last_bot_response or 'location' in last_bot_response:
+                # User is responding to state question
+                return f"I understand you're from {user_input}. I can provide location-specific cyber law guidance. What cyber law issue would you like help with?"
+        
+        greeting_responses = {
+            "hi": "Hello! I'm Cyberlex, your AI assistant. I'm here to help with both general questions and cyber law matters. How can I assist you today?",
+            "hello": "Hi there! I'm Cyberlex, an AI assistant. I can help with various questions including cyber law guidance. What would you like to know?",
+            "hey": "Hey! I'm Cyberlex, your friendly AI assistant. I'm here to help with any questions you have. What's on your mind?",
+            "hai": "Hello! I'm Cyberlex, your AI assistant. I'm doing great and ready to help you! How are you doing today?",
+            "how are you": "I'm doing fantastic, thank you for asking! I'm Cyberlex, an AI assistant ready to help with any questions you have. How are you today?",
+            "how r u": "I'm doing great, thanks for asking! I'm Cyberlex, your friendly AI assistant. How can I help you today?",
+            "good morning": "Good morning! I'm Cyberlex, your AI assistant. I hope you're having a wonderful day. How can I help you?",
+            "good afternoon": "Good afternoon! I'm Cyberlex, ready to assist you with any questions you have. What can I help you with?",
+            "good evening": "Good evening! I'm Cyberlex, your AI assistant. How can I help you tonight?",
+            "thanks": "You're very welcome! I'm always here to help. Is there anything else I can assist you with?",
+            "thank you": "You're most welcome! I'm glad I could help. Feel free to ask me anything else.",
+            "bye": "Goodbye! It was great talking with you. Feel free to come back if you have any questions. Take care!",
+            "goodbye": "Goodbye! Have a wonderful day! I'm always here if you need help with anything.",
+            "ok": "Great! Is there anything I can help you with?",
+            "okay": "Perfect! What would you like to know or discuss?"
+        }
+        
+        # Find the best matching response
+        for key, response in greeting_responses.items():
+            if key in input_lower:
+                return response
+        
+        # Default friendly response with follow-up
+        return "Hello! I'm Cyberlex, your AI assistant. I can help with various topics including cyber law, general questions, and more. How can I assist you today?"
+    
+    def handle_state_response(self, user_input: str) -> str:
+        """Handle state/location specific responses"""
+        input_lower = user_input.lower().strip()
+        
+        # Common state mappings
+        state_info = {
+            "tamil nadu": {
+                "name": "Tamil Nadu",
+                "language": "Tamil",
+                "police": "Tamil Nadu Police",
+                "cybercrime": "Tamil Nadu Cyber Crime Investigation Department"
+            },
+            "karnataka": {
+                "name": "Karnataka", 
+                "language": "Kannada",
+                "police": "Karnataka State Police",
+                "cybercrime": "Karnataka State Cyber Crime Investigation Department"
+            },
+            "maharashtra": {
+                "name": "Maharashtra",
+                "language": "Marathi", 
+                "police": "Maharashtra Police",
+                "cybercrime": "Maharashtra Cyber Crime Investigation Department"
+            },
+            "delhi": {
+                "name": "Delhi",
+                "language": "Hindi",
+                "police": "Delhi Police",
+                "cybercrime": "Delhi Police Cyber Crime Unit"
+            },
+            "west bengal": {
+                "name": "West Bengal",
+                "language": "Bengali",
+                "police": "West Bengal Police", 
+                "cybercrime": "West Bengal Cyber Crime Investigation Department"
+            }
+        }
+        
+        # Find matching state
+        for state_key, info in state_info.items():
+            if state_key in input_lower or info["name"].lower() in input_lower:
+                return f"""Great! You're from {info['name']}. I can provide state-specific guidance:
+
+🏛️ **{info['name']} Cyber Crime Authorities:**
+• **{info['cybercrime']}**
+• **{info['police']}**
+
+🌐 **Language Support:** I can assist you in {info['language']} if needed.
+
+📍 **What specific help do you need?**
+• Report a cyber crime
+• File a complaint 
+• Understand cyber laws
+• Get legal guidance
+• Find local authorities
+
+Please let me know how you'd like to proceed, and I'll provide detailed assistance tailored for {info['name']}!"""
+        
+        # Generic state response
+        return f"""Thank you for mentioning your location! I can provide state-specific guidance for cyber law matters.
+
+📍 **How I can help with location-specific guidance:**
+• Local cyber crime authorities and contact details
+• State-specific complaint procedures  
+• Regional language support
+• Jurisdiction-specific legal guidance
+
+🔍 **What would you like assistance with?**
+• Reporting cyber crimes
+• Understanding your legal rights
+• Filing complaints
+• Contacting authorities
+
+Please let me know what specific help you need, and I'll provide detailed guidance for your area!"""
+    
     def detect_intent(self, user_input: str) -> str:
-        """Detect user intent (complaint, file_analysis, general_query)"""
-        input_lower = user_input.lower()
+        """Detect user intent (greeting, state_response, complaint, file_analysis, general_query)"""
+        input_lower = user_input.lower().strip()
+        
+        # Check if this is a state/location response
+        indian_states = [
+            "andhra pradesh", "arunachal pradesh", "assam", "bihar", "chhattisgarh", "goa", 
+            "gujarat", "haryana", "himachal pradesh", "jharkhand", "karnataka", "kerala", 
+            "madhya pradesh", "maharashtra", "manipur", "meghalaya", "mizoram", "nagaland", 
+            "odisha", "punjab", "rajasthan", "sikkim", "tamil nadu", "telangana", "tripura", 
+            "uttar pradesh", "uttarakhand", "west bengal", "delhi", "puducherry", "jammu and kashmir",
+            "ladakh", "andaman and nicobar", "chandigarh", "dadra and nagar haveli", "daman and diu",
+            "lakshadweep"
+        ]
+        
+        # Check if user mentioned a state (and message is short, indicating it's a response)
+        if len(input_lower.split()) <= 3:
+            for state in indian_states:
+                if state in input_lower:
+                    return "state_response"
+        
+        # Greeting and casual conversation indicators
+        greeting_keywords = [
+            "hi", "hello", "hey", "hai", "how are you", "how r u", "good morning", 
+            "good afternoon", "good evening", "what's up", "whats up", "sup",
+            "how you doing", "how do you do", "nice to meet", "thanks", "thank you",
+            "bye", "goodbye", "see you", "good night", "take care", "ok", "okay",
+            "yes", "no", "sure", "fine", "great", "cool", "awesome", "nice"
+        ]
         
         # Complaint indicators
         complaint_keywords = [
@@ -307,13 +461,77 @@ RESPONSE:"""
             "review document", "check this", "what does this mean"
         ]
         
-        if any(keyword in input_lower for keyword in complaint_keywords):
+        # Check for greetings and simple responses first (short messages only)
+        if len(input_lower.split()) <= 5 and any(keyword in input_lower for keyword in greeting_keywords):
+            return "greeting"
+        elif any(keyword in input_lower for keyword in complaint_keywords):
             return "complaint"
         elif any(keyword in input_lower for keyword in file_keywords):
             return "file_analysis"
         else:
             return "general_query"
     
+    def is_legal_question(self, user_input: str) -> bool:
+        """Check if the question is actually about legal/cyber law matters"""
+        input_lower = user_input.lower()
+        
+        legal_keywords = [
+            "law", "legal", "cyber", "crime", "hacking", "fraud", "scam", "section", "act", 
+            "ipc", "bns", "it act", "punishment", "penalty", "complaint", "fir", "police",
+            "court", "lawyer", "attorney", "legal advice", "violation", "offense", "illegal",
+            "rights", "harassment", "stalking", "defamation", "privacy", "data breach",
+            "phishing", "malware", "virus", "unauthorized access", "identity theft",
+            "cybercrime", "cyber crime", "digital", "online fraud", "internet", "website",
+            "social media", "facebook", "whatsapp", "instagram", "twitter", "email hack",
+            "banking fraud", "credit card", "upi fraud", "fake website", "fake profile"
+        ]
+        
+        # Check if the question contains legal keywords
+        return any(keyword in input_lower for keyword in legal_keywords)
+    
+    def handle_general_question(self, user_input: str) -> str:
+        """Handle general non-legal questions with a friendly AI response"""
+        try:
+            prompt = f"""
+You are Cyberlex, a friendly and helpful AI assistant. The user asked: "{user_input}"
+
+This appears to be a general question, not specifically about cyber law or legal matters. Provide a helpful, conversational response as a general AI assistant would. Be friendly, informative, and natural.
+
+If the user asks about your capabilities, mention that you can help with:
+- General questions and conversations
+- Cyber law and legal guidance when needed
+- Information and assistance on various topics
+
+Keep the response natural and conversational, without forcing legal topics.
+"""
+            
+            response = self.model.generate_content(prompt)
+            
+            if response and response.text:
+                return response.text.strip()
+            else:
+                return "I'm here to help! Could you tell me more about what you'd like to know?"
+                
+        except Exception as e:
+            print(f"Error generating general response: {e}")
+            return "I'm Cyberlex, your AI assistant. I'm here to help with various questions. What would you like to know?"
+
+    def is_legal_query(self, query: str) -> bool:
+        """Determine if a query is asking for legal/cyber law information"""
+        legal_keywords = [
+            "law", "legal", "crime", "offense", "punishment", "penalty", "fine", "jail", "prison",
+            "section", "act", "ipc", "it act", "cyber", "hack", "fraud", "scam", "report", "complaint",
+            "fir", "police", "court", "lawyer", "attorney", "sue", "sued", "violation", "illegal",
+            "rights", "privacy", "data", "personal information", "harassment", "stalking", "defamation",
+            "case", "judicial", "jurisdiction", "evidence", "investigation", "arrest", "warrant",
+            "bns", "bharatiya nyaya sanhita", "indian penal code", "information technology",
+            "cybercrime", "digital", "online safety", "internet law", "email fraud", "phishing",
+            "identity theft", "financial fraud", "banking fraud", "social media crime"
+        ]
+        
+        query_lower = query.lower()
+        return any(keyword in query_lower for keyword in legal_keywords)
+
     def process_query(self, user_input: str, file_path: str = None) -> str:
         """Main method to process user query through the complete pipeline"""
         try:
@@ -323,6 +541,18 @@ RESPONSE:"""
             intent = self.detect_intent(user_input)
             print(f"Detected intent: {intent}")
             
+            # Handle greetings and casual conversation
+            if intent == "greeting":
+                response = self.handle_greeting(user_input)
+                self.add_to_conversation_history(user_input, user_input, response, "English")
+                return response
+            
+            # Handle state responses  
+            if intent == "state_response":
+                response = self.handle_state_response(user_input)
+                self.add_to_conversation_history(user_input, user_input, response, "English")
+                return response
+            
             # Handle file analysis if file provided
             if file_path and intent == "file_analysis":
                 return self.handle_file_analysis(file_path, user_input)
@@ -330,6 +560,12 @@ RESPONSE:"""
             # Handle complaint collection
             if intent == "complaint":
                 return self.handle_complaint_initiation(user_input)
+            
+            # Check if this is actually a legal/cyber law question
+            if not self.is_legal_query(user_input):
+                response = self.handle_general_question(user_input)
+                self.add_to_conversation_history(user_input, user_input, response, "English")
+                return response
             
             # Step 1: Translate to English if needed (simplified)
             print("Translating to English...")
