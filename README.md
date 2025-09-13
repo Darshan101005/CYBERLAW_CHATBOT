@@ -319,16 +319,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Indian Cyber Crime Coordination Centre** for guidance
 
 ---
-
-## 📞 **Support & Contact**
-
-- **GitHub Issues**: [Report bugs or request features](https://github.com/Darshan101005/CYBERLAW_CHATBOT/issues)
-- **Documentation**: [Comprehensive guides and API docs](https://github.com/Darshan101005/CYBERLAW_CHATBOT/wiki)
-- **Email**: cyberlex.ai@gmail.com
-
----
-
-<div align="center">
-  <h3>🌟 Star this project if it helps you understand cyber laws better! 🌟</h3>
-  <p><strong>Making Indian cyber laws accessible to everyone, one query at a time.</strong></p>
-</div>
