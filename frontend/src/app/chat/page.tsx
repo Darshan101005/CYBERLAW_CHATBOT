@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
-import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2, Edit3, Check, X, Paperclip, Upload, FileText, CheckSquare, ScrollText, Brain } from 'lucide-react'
+import { Send, Sparkles, MessageCircle, Menu, LogOut, User, Plus, Trash2, Edit3, Check, X, Paperclip, Upload, FileText, CheckSquare, ScrollText, Brain, Heart } from 'lucide-react'
 import NewsNotification from '@/components/NewsNotification'
 import ChatMessage from '@/components/ChatMessage'
 import ChecklistGenerator from '@/components/ChecklistGenerator'
@@ -39,6 +39,10 @@ export default function Chat() {
   const [showChecklist, setShowChecklist] = useState(false)
   const [showAmendments, setShowAmendments] = useState(false)
   const [showQuiz, setShowQuiz] = useState(false)
+  const [favoriteMessages, setFavoriteMessages] = useState<Set<string>>(new Set())
+  const [showFavorites, setShowFavorites] = useState(false)
+  const [showFavoritesReminder, setShowFavoritesReminder] = useState(false)
+  const [lastFavoritesCheck, setLastFavoritesCheck] = useState<number>(Date.now())
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
 
@@ -50,6 +54,23 @@ export default function Chat() {
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+  // Check for favorites reminder notification
+  useEffect(() => {
+    const checkFavoritesReminder = () => {
+      const now = Date.now()
+      const timeSinceLastCheck = now - lastFavoritesCheck
+      const hasAnyFavorites = favoriteMessages.size > 0
+      
+      // Show reminder if user has favorites but hasn't checked in 30 seconds (for demo purposes)
+      if (hasAnyFavorites && timeSinceLastCheck > 30000 && !showFavoritesReminder) {
+        setShowFavoritesReminder(true)
+      }
+    }
+
+    const interval = setInterval(checkFavoritesReminder, 5000) // Check every 5 seconds
+    return () => clearInterval(interval)
+  }, [favoriteMessages, lastFavoritesCheck, showFavoritesReminder])
 
   const checkUser = async () => {
     const { data: { user } } = await supabase.auth.getUser()
@@ -77,6 +98,42 @@ export default function Chat() {
         loadMessages(data[0].id)
       }
     }
+  }
+
+  const getFilteredSessions = () => {
+    return sessions
+  }
+
+  // Load favorite messages from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('cyberlex-favorite-messages')
+    if (saved) {
+      setFavoriteMessages(new Set(JSON.parse(saved)))
+    }
+  }, [])
+
+  // Save favorite messages to localStorage
+  const saveFavorites = (favorites: Set<string>) => {
+    localStorage.setItem('cyberlex-favorite-messages', JSON.stringify([...favorites]))
+  }
+
+  // Toggle favorite status for a message
+  const toggleMessageFavorite = (messageId: string) => {
+    const newFavorites = new Set(favoriteMessages)
+    if (newFavorites.has(messageId)) {
+      newFavorites.delete(messageId)
+    } else {
+      newFavorites.add(messageId)
+    }
+    setFavoriteMessages(newFavorites)
+    saveFavorites(newFavorites)
+  }
+
+  // Get all favorite messages
+  const getFavoriteMessages = () => {
+    return messages.filter(message => 
+      !message.is_user && favoriteMessages.has(message.id)
+    )
   }
 
   const loadMessages = async (sessionId: string) => {
@@ -347,21 +404,21 @@ export default function Chat() {
 
           <div className="flex-1 overflow-y-auto p-4">
             <div className="space-y-3">
-              {sessions.map((session) => (
-                <div
-                  key={session.id}
-                  className={`group flex items-center justify-between p-4 rounded-xl transition-all duration-200 ${
-                    currentSession === session.id
-                      ? 'bg-gradient-to-r from-white to-primary-50 backdrop-blur-sm border border-primary-200 shadow-sm'
-                      : 'hover:bg-primary-50/50 hover:backdrop-blur-sm'
-                  } ${editingSession === session.id ? 'cursor-default' : 'cursor-pointer'}`}
-                  onClick={() => {
-                    if (editingSession !== session.id) {
-                      setCurrentSession(session.id)
-                      loadMessages(session.id)
-                    }
-                  }}
-                >
+              {getFilteredSessions().map((session) => (
+                  <div
+                    key={session.id}
+                    className={`group flex items-center justify-between p-4 rounded-xl transition-all duration-200 ${
+                      currentSession === session.id
+                        ? 'bg-gradient-to-r from-white to-primary-50 backdrop-blur-sm border border-primary-200 shadow-sm'
+                        : 'hover:bg-primary-50/50 hover:backdrop-blur-sm'
+                    } ${editingSession === session.id ? 'cursor-default' : 'cursor-pointer'}`}
+                    onClick={() => {
+                      if (editingSession !== session.id) {
+                        setCurrentSession(session.id)
+                        loadMessages(session.id)
+                      }
+                    }}
+                  >
                   <div className="flex-1 min-w-0">
                     {editingSession === session.id ? (
                       <div className="flex items-center space-x-2">
@@ -399,13 +456,17 @@ export default function Chat() {
                         </button>
                       </div>
                     ) : (
-                      <h3 className="text-sm font-semibold text-primary-800 truncate mb-1">
-                        {session.title}
-                      </h3>
+                      <div className="flex items-center space-x-2">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-sm font-semibold text-primary-800 truncate mb-1">
+                            {session.title}
+                          </h3>
+                          <p className="text-xs text-primary-600">
+                            {new Date(session.created_at).toLocaleDateString()}
+                          </p>
+                        </div>
+                      </div>
                     )}
-                    <p className="text-xs text-primary-600">
-                      {new Date(session.created_at).toLocaleDateString()}
-                    </p>
                   </div>
                   {editingSession !== session.id && (
                     <div className="flex space-x-1">
@@ -480,6 +541,17 @@ export default function Chat() {
             </div>
             <div className="flex items-center space-x-2">
               <button
+                onClick={() => {
+                  setShowFavorites(true)
+                  setLastFavoritesCheck(Date.now())
+                  setShowFavoritesReminder(false)
+                }}
+                className="p-3 text-red-600 hover:text-red-800 hover:bg-red-100 rounded-xl transition-all duration-200 tooltip"
+                title="View Favorite Messages"
+              >
+                <Heart className="w-5 h-5" />
+              </button>
+              <button
                 onClick={() => setShowAmendments(true)}
                 className="p-3 text-orange-600 hover:text-orange-800 hover:bg-orange-100 rounded-xl transition-all duration-200 tooltip"
                 title="Latest Amendments & Updates"
@@ -504,6 +576,41 @@ export default function Chat() {
             </div>
           </div>
         </header>
+
+        {/* Favorites Reminder Notification */}
+        {showFavoritesReminder && (
+          <div className="fixed top-4 right-4 z-50 animate-slide-in-right">
+            <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white p-4 rounded-xl shadow-2xl border border-orange-300 max-w-sm">
+              <div className="flex items-start space-x-3">
+                <div className="flex-shrink-0">
+                  <Heart className="w-6 h-6 text-white fill-current animate-pulse" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-sm mb-1">Check Your Favorites!</h4>
+                  <p className="text-xs text-orange-100 leading-relaxed">
+                    You haven't checked your favorite messages in a while. Click to review your saved responses! 💫
+                  </p>
+                  <button
+                    onClick={() => {
+                      setShowFavorites(true)
+                      setLastFavoritesCheck(Date.now())
+                      setShowFavoritesReminder(false)
+                    }}
+                    className="mt-2 bg-white text-orange-600 px-3 py-1 rounded-lg text-xs font-medium hover:bg-orange-50 transition-all duration-200"
+                  >
+                    View Favorites
+                  </button>
+                </div>
+                <button
+                  onClick={() => setShowFavoritesReminder(false)}
+                  className="flex-shrink-0 text-orange-200 hover:text-white transition-colors duration-200"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {messages.length === 0 ? (
@@ -557,7 +664,13 @@ export default function Chat() {
                         : 'bg-gradient-to-r from-white to-primary-50 backdrop-blur-sm border border-primary-200 text-primary-800'
                     }`}
                   >
-                    <ChatMessage content={message.content} isUser={message.is_user} />
+                    <ChatMessage 
+                      content={message.content} 
+                      isUser={message.is_user}
+                      messageId={message.id}
+                      isFavorite={favoriteMessages.has(message.id)}
+                      onToggleFavorite={toggleMessageFavorite}
+                    />
                     <span
                       className={`text-xs mt-2 block ${
                         message.is_user ? 'text-primary-100' : 'text-primary-600'
@@ -688,6 +801,72 @@ export default function Chat() {
         isOpen={showChecklist} 
         onClose={() => setShowChecklist(false)} 
       />
+
+      {/* Favorite Messages Modal */}
+      {showFavorites && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
+            <div className="bg-gradient-to-r from-red-600 to-pink-600 text-white p-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <Heart className="w-8 h-8 fill-current" />
+                  <div>
+                    <h2 className="text-2xl font-bold">Favorite Messages</h2>
+                    <p className="text-red-100">Your saved AI responses ({getFavoriteMessages().length} messages)</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowFavorites(false)}
+                  className="text-white hover:text-red-200 p-2 hover:bg-white/10 rounded-lg transition-all"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+            
+            <div className="p-6 overflow-y-auto max-h-[60vh]">
+              {getFavoriteMessages().length === 0 ? (
+                <div className="text-center py-12">
+                  <Heart className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-600 mb-2">No favorite messages yet</h3>
+                  <p className="text-gray-500">Heart the AI responses you find helpful to save them here</p>
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  {getFavoriteMessages().map((message, index) => (
+                    <div key={message.id} className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-6 h-6 bg-gradient-to-r from-red-600 to-pink-600 rounded-full flex items-center justify-center">
+                            <Sparkles className="w-3 h-3 text-white" />
+                          </div>
+                          <span className="text-sm font-medium text-gray-600">AI Response #{index + 1}</span>
+                        </div>
+                        <button
+                          onClick={() => toggleMessageFavorite(message.id)}
+                          className="text-red-600 hover:text-red-800 p-1 rounded transition-all"
+                          title="Remove from favorites"
+                        >
+                          <Heart className="w-4 h-4 fill-current" />
+                        </button>
+                      </div>
+                      <div className="text-primary-800">
+                        <ChatMessage 
+                          content={message.content} 
+                          isUser={false}
+                        />
+                      </div>
+                      <div className="text-xs text-gray-500 mt-3">
+                        Saved on {new Date(message.created_at).toLocaleDateString()} at {new Date(message.created_at).toLocaleTimeString()}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

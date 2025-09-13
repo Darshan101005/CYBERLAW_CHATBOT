@@ -1,13 +1,17 @@
 'use client'
 
 import { ReactElement } from 'react'
+import { Heart } from 'lucide-react'
 
 interface ChatMessageProps {
   content: string
   isUser: boolean
+  messageId?: string
+  isFavorite?: boolean
+  onToggleFavorite?: (messageId: string) => void
 }
 
-export default function ChatMessage({ content, isUser }: ChatMessageProps) {
+export default function ChatMessage({ content, isUser, messageId, isFavorite, onToggleFavorite }: ChatMessageProps) {
   // Function to format the text with proper markdown parsing
   const formatContent = (text: string) => {
     // Split by lines and process each line
@@ -269,8 +273,27 @@ export default function ChatMessage({ content, isUser }: ChatMessageProps) {
   }
   
   return (
-    <div className={`leading-relaxed ${isUser ? 'text-white' : 'text-primary-800'}`}>
-      {formatContent(content)}
+    <div className={`group ${isUser ? 'flex justify-end' : 'flex justify-start'}`}>
+      <div className={`relative max-w-full ${isUser ? 'text-white' : 'text-primary-800'}`}>
+        {/* Heart button for bot messages */}
+        {!isUser && messageId && onToggleFavorite && (
+          <button
+            onClick={() => onToggleFavorite(messageId)}
+            className={`absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 p-1 rounded-full transition-all duration-200 ${
+              isFavorite 
+                ? 'text-red-600 bg-red-100 hover:bg-red-200' 
+                : 'text-gray-400 hover:text-red-600 bg-white hover:bg-red-100 shadow-sm'
+            }`}
+            title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+          >
+            <Heart className={`w-4 h-4 ${isFavorite ? 'fill-current' : ''}`} />
+          </button>
+        )}
+        
+        <div className={`leading-relaxed ${isUser ? 'text-white' : 'text-primary-800'}`}>
+          {formatContent(content)}
+        </div>
+      </div>
     </div>
   )
 }
